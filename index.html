@@ -668,6 +668,20 @@
           opacity: 1;
         }
       }
+      .text-input:-webkit-autofill,
+.text-input:-webkit-autofill:hover, 
+.text-input:-webkit-autofill:focus, 
+.text-input:-webkit-autofill:active{
+    /* 1. Paint the background white using a shadow to cover the blue */
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+    
+    /* 2. Ensure text color stays dark (sometimes it turns yellow/blue) */
+    -webkit-text-fill-color: #333 !important;
+    
+    /* 3. (Optional) If you really need it TRANSPARENT instead of white, 
+       use this transition hack instead of the box-shadow above: */
+    /* transition: background-color 5000s ease-in-out 0s; */
+}
 
       .input-container {
         position: fixed;
