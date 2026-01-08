@@ -48,10 +48,10 @@
       }
 
       .content-wrapper {
+        width: inherit;
         position: fixed;
         top: 35%;
         left: 50%;
-        /* padding-left: 32px; */
         transform: translate(-50%, -50%);
         z-index: 4;
         text-align: center;
@@ -455,10 +455,8 @@
            2. Transform waits 0.5s, then snaps back while invisible.
            This creates the "Just fade out" effect. 
         */
-        transition: 
-          opacity 0.5s ease-out, 
-          filter 0.5s ease-out, 
-          transform 0.01s 0.5s; 
+        transition: opacity 0.5s ease-out, filter 0.5s ease-out,
+          transform 0.01s 0.5s;
       }
 
       /* === STATE 2: VISIBLE (Applied by JS) === */
@@ -468,11 +466,9 @@
         transform: translateY(0) scale(1);
 
         /* When entering (scrolling down), animate everything smoothly together */
-        transition: 
-          transform 0.8s cubic-bezier(0.25, 1, 0.5, 1),
-          opacity 0.8s ease-out,
-          filter 0.8s ease-out;
-        
+        transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1),
+          opacity 0.8s ease-out, filter 0.8s ease-out;
+
         /* Stagger the entrance based on the inline --i variable */
         transition-delay: calc(var(--i) * 0.1s);
       }
@@ -556,7 +552,7 @@
         }
         75% {
           border-radius: 0px;
-          width: 400px;
+          width: var(--mid-w);
           height: 80px;
           transform: translate(-25%, -25%) rotate(0deg);
         }
@@ -564,7 +560,7 @@
           border-radius: 0px;
         }
         100% {
-          width: 385px;
+          width: var(--final-w);
           height: 53px;
           border-radius: 64px;
           transform: translate(0, 0) rotate(0deg);
@@ -687,6 +683,8 @@
       }
 
       .input-frame {
+        --mid-w: 400px;
+        --final-w: 385px;
         position: fixed;
         opacity: 1;
         border: 1px solid #7ca2e0;
@@ -694,6 +692,13 @@
         z-index: 10;
         animation: morph-frame linear forwards;
         animation-timeline: scroll();
+      }
+
+      @media (max-width: 600px) {
+        .input-frame {
+          --desktop-: 270px;
+          --final-w: 250px;
+        }
       }
 
       .text-input {
@@ -823,7 +828,9 @@
       </div>
     </div>
     <div class="footer">
-      <p>Contact</p>
+      <a href="mailto:zacharymichaelmoore@gmail.com" class="contact-link"
+        >Contact</a
+      >
       <p>Copyright Nala</p>
     </div>
     <script>
@@ -838,6 +845,34 @@
           bandsContainer.classList.add("visible");
         } else {
           bandsContainer.classList.remove("visible");
+        }
+      });
+    </script>
+    <script>
+      const FORM_BASE_URL =
+        "https://docs.google.com/forms/d/e/1FAIpQLScNV_za4VU8GqcpciHPAwZBoyrl7iYCFr1I_fIGdzPkQ1hOww/viewform";
+      const EMAIL_ENTRY_ID = "entry.61043093";
+      const submitBtn = document.querySelector(".submit-btn");
+      const emailInput = document.querySelector(".text-input");
+      function redirectToForm() {
+        const email = emailInput.value;
+        if (!email) {
+          alert("Please enter your email first.");
+          return;
+        }
+
+        const finalUrl = `${FORM_BASE_URL}?usp=pp_url&${EMAIL_ENTRY_ID}=${encodeURIComponent(
+          email
+        )}`;
+
+        window.open(finalUrl, "_blank");
+      }
+
+      submitBtn.addEventListener("click", redirectToForm);
+
+      emailInput.addEventListener("keypress", (e) => {
+        if (e.key === "Enter") {
+          redirectToForm();
         }
       });
     </script>
