@@ -10,9 +10,9 @@
     <title>Nala Pet - Smart Dog Collar</title>
     <style>
       @property --grad-angle {
-        syntax: "<angle>";
-        initial-value: 225deg;
         inherits: false;
+        initial-value: 225deg;
+        syntax: "<angle>";
       }
 
       :root {
@@ -20,465 +20,33 @@
       }
 
       * {
+        box-sizing: border-box;
         margin: 0;
         padding: 0;
-        box-sizing: border-box;
       }
+
       html,
       body {
-        width: 100%;
         overflow-x: hidden;
+        width: 100%;
       }
 
       body {
-        height: 250vh;
         background-color: #ffffff;
         font-family: "Lora", "Bodoni MT", "Times New Roman", serif;
-      }
-
-      .circle-bg {
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 125vmin;
-        height: 125vmin;
-        background: linear-gradient(var(--grad-angle), #ffffff 0%, #7ca2e0 45%);
-        border-radius: 50%;
-        isolation: isolate;
-        animation: morph-bg linear forwards;
-        animation-timing-function: var(--ease-smooth);
-        animation-timeline: scroll();
-      }
-
-      .content-wrapper {
-        width: inherit;
-        position: fixed;
-        top: 35%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        z-index: 4;
-        text-align: center;
-        pointer-events: none;
-      }
-
-      .title {
-        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
-          sans-serif;
-        font-size: 2rem;
-        font-weight: 600;
-        color: #333;
-        margin-bottom: 12px;
-        opacity: 0;
-        will-change: transform, opacity, filter;
-        animation: fade-slide-in-title linear forwards;
-        animation-timeline: scroll();
-      }
-
-      .subtitle {
-        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
-          sans-serif;
-        font-size: 1rem;
-        font-weight: 400;
-        color: #666;
-        opacity: 0;
-        will-change: transform, opacity, filter;
-        animation: fade-slide-in-subtitle linear forwards;
-        animation-timeline: scroll();
-      }
-
-      @keyframes fade-slide-in-title {
-        0%,
-        60% {
-          opacity: 0;
-          filter: blur(12px);
-          transform: translateY(-10px) scale(1.15);
-        }
-        85%,
-        100% {
-          opacity: 1;
-          filter: blur(0px);
-          transform: translateY(0) scale(1);
-        }
-      }
-
-      @keyframes fade-slide-in-subtitle {
-        0%,
-        70% {
-          opacity: 0;
-          filter: blur(12px);
-          transform: translateY(-10px) scale(1.15);
-        }
-        90%,
-        100% {
-          opacity: 1;
-          filter: blur(0px);
-          transform: translateY(0) scale(1);
-        }
-      }
-
-      .circle-bg-wrapper {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        z-index: 1;
-        pointer-events: none;
-        animation: morph-bg-wrapper linear forwards;
-        animation-timing-function: var(--ease-smooth);
-        animation-timeline: scroll();
-      }
-
-      .circle-bg::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        width: 100%;
-        height: 100%;
-        opacity: 0.15;
-        mix-blend-mode: multiply;
-        pointer-events: none;
-        z-index: 1;
-      }
-
-      .final-n {
-        position: relative;
-        z-index: 100;
-        font-family: "Lora", "Bodoni MT", "Times New Roman", serif;
-        font-size: 58px;
-        color: white;
-        line-height: 1;
-        padding-bottom: 9px;
-        padding-left: 2px;
-        opacity: 0;
-        transform: translateY(150%);
-        animation-name: pop-up-n;
-        animation-duration: 1ms;
-        animation-fill-mode: both;
-        animation-timing-function: linear;
-        animation-timeline: scroll();
-      }
-
-      .main-text {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        z-index: 2;
-        display: flex;
-        align-items: baseline;
-        gap: -1vmin;
-        pointer-events: none;
-      }
-
-      .char-box {
-        display: inline-block;
-        will-change: transform, opacity;
-        animation-timing-function: var(--ease-smooth) !important;
-      }
-
-      .char {
-        display: inline-block;
-        font-size: 25vmin;
-        color: white;
-        line-height: 1;
-        will-change: transform;
-        animation: rotate-char linear forwards;
-        animation-timing-function: var(--ease-smooth);
-        animation-timeline: scroll();
-      }
-
-      .footer {
-        width: 100%;
-        padding: 12px 12px;
-        position: fixed;
-        z-index: 3;
-        bottom: 0px;
-        font-size: 12px;
-        font-weight: 700;
-        font-family: "Lora", "Bodoni MT", "Times New Roman", serif;
-        text-transform: uppercase;
-        color: white;
-        background-color: #5d8cda;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        animation: fade-in-footer linear forwards;
-        animation-timing-function: var(--ease-smooth);
-        animation-timeline: scroll();
-      }
-
-      <!DOCTYPE
-        html
-        > <html
-        lang="en"
-        > <head
-        > <meta
-        charset="UTF-8"
-        /
-        > <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-        /
-        > <title
-        > Nala
-        -
-        Scroll
-        Animation</title
-        > <style
-        > @property
-        --grad-angle {
-        syntax: "<angle>";
-        initial-value: 225deg;
-        inherits: false;
-      }
-
-      :root {
-        --ease-smooth: cubic-bezier(0.65, 0, 0.35, 1);
-      }
-
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-      html,
-      body {
-        width: 100%;
-        overflow-x: hidden;
-      }
-
-      body {
         height: 250vh;
-        background-color: #ffffff;
-        font-family: "Lora", "Bodoni MT", "Times New Roman", serif;
-      }
-
-      .circle-bg {
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 125vmin;
-        height: 125vmin;
-        background: linear-gradient(var(--grad-angle), #ffffff 0%, #7ca2e0 45%);
-        border-radius: 50%;
-        isolation: isolate;
-        animation: morph-bg linear forwards;
-        animation-timing-function: var(--ease-smooth);
-        animation-timeline: scroll();
-      }
-
-      .content-wrapper {
-        position: fixed;
-        top: 35%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        z-index: 4;
-        text-align: center;
-        pointer-events: none;
-      }
-
-      .title {
-        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
-          sans-serif;
-        font-size: 2rem;
-        font-weight: 600;
-        color: #333;
-        margin-bottom: 12px;
-        opacity: 0;
-        will-change: transform, opacity, filter;
-        animation: fade-slide-in-title linear forwards;
-        animation-timeline: scroll();
-      }
-
-      .subtitle {
-        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
-          sans-serif;
-        font-size: 1rem;
-        font-weight: 400;
-        color: #666;
-        opacity: 0;
-        will-change: transform, opacity, filter;
-        animation: fade-slide-in-subtitle linear forwards;
-        animation-timeline: scroll();
-      }
-
-      @keyframes fade-slide-in-title {
-        0%,
-        60% {
-          opacity: 0;
-          filter: blur(12px);
-          transform: translateY(-10px) scale(1.15);
-        }
-        85%,
-        100% {
-          opacity: 1;
-          filter: blur(0px);
-          transform: translateY(0) scale(1);
-        }
-      }
-
-      @keyframes fade-slide-in-subtitle {
-        0%,
-        70% {
-          opacity: 0;
-          filter: blur(12px);
-          transform: translateY(-10px) scale(1.15);
-        }
-        90%,
-        100% {
-          opacity: 1;
-          filter: blur(0px);
-          transform: translateY(0) scale(1);
-        }
-      }
-
-      .circle-bg-wrapper {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        z-index: 1;
-        pointer-events: none;
-        animation: morph-bg-wrapper linear forwards;
-        animation-timing-function: var(--ease-smooth);
-        animation-timeline: scroll();
-      }
-
-      .circle-bg::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        width: 100%;
-        height: 100%;
-        opacity: 0.15;
-        mix-blend-mode: multiply;
-        pointer-events: none;
-        z-index: 1;
-      }
-
-      .final-n {
-        position: relative;
-        z-index: 100;
-        font-family: "Lora", "Bodoni MT", "Times New Roman", serif;
-        font-size: 58px;
-        color: white;
-        line-height: 1;
-        padding-bottom: 9px;
-        padding-left: 2px;
-        opacity: 0;
-        transform: translateY(150%);
-        animation-name: pop-up-n;
-        animation-duration: 1ms;
-        animation-fill-mode: both;
-        animation-timing-function: linear;
-        animation-timeline: scroll();
-      }
-
-      .main-text {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        z-index: 2;
-        display: flex;
-        align-items: baseline;
-        gap: -1vmin;
-        pointer-events: none;
-      }
-
-      .char-box {
-        display: inline-block;
-        will-change: transform, opacity;
-        animation-timing-function: var(--ease-smooth) !important;
-      }
-
-      .char {
-        display: inline-block;
-        font-size: 25vmin;
-        color: white;
-        line-height: 1;
-        will-change: transform;
-        animation: rotate-char linear forwards;
-        animation-timing-function: var(--ease-smooth);
-        animation-timeline: scroll();
-      }
-
-      .footer {
-        width: 100%;
-        padding: 12px 24px;
-        position: fixed;
-        z-index: 6;
-        bottom: 0px;
-        font-size: 12px;
-        font-weight: 700;
-        font-family: "Inter", sans-serif;
-        text-transform: uppercase;
-        color: white;
-        background-color: #5d8cda;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        animation: fade-in-footer linear forwards;
-        animation-timing-function: var(--ease-smooth);
-        animation-timeline: scroll();
-      }
-
-      .bands-container {
-        position: fixed;
-        bottom: 50px;
-        left: 0;
-        width: 100%;
-        padding: 0 4%;
-        z-index: 2;
-        pointer-events: none;
-        display: grid;
-        grid-template-columns: repeat(6, 1fr);
-        gap: 2%;
-        align-items: end;
-      }
-
-      .contact-link {
-        color: white;
       }
 
       .band-col {
         display: flex;
-        flex-direction: column-reverse;
-        width: 100%;
-        transform-origin: bottom;
-        will-change: transform, opacity, filter;
-
-        /* === STATE 1: HIDDEN (Default) === */
-        /* Start blurry, invisible, and shifted down/scaled down */
-        opacity: 0;
         filter: blur(10px);
+        flex-direction: column-reverse;
+        opacity: 0;
         transform: translateY(40px) scale(0.9);
-
-        /* THE TRICK:
-           When removing the .visible class (scrolling up), we delay 
-           the 'transform' transition. 
-           1. Opacity/Filter fade out instantly (0.5s).
-           2. Transform waits 0.5s, then snaps back while invisible.
-           This creates the "Just fade out" effect. 
-        */
-        transition: opacity 0.5s ease-out, filter 0.5s ease-out,
-          transform 0.01s 0.5s;
-      }
-
-      /* === STATE 2: VISIBLE (Applied by JS) === */
-      .bands-container.visible .band-col {
-        opacity: 1;
-        filter: blur(0px);
-        transform: translateY(0) scale(1);
-
-        /* When entering (scrolling down), animate everything smoothly together */
-        transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1),
-          opacity 0.8s ease-out, filter 0.8s ease-out;
-
-        /* Stagger the entrance based on the inline --i variable */
-        transition-delay: calc(var(--i) * 0.1s);
+        transform-origin: bottom;
+        transition: opacity 0.5s ease-out, filter 0.5s ease-out, transform 0.01s 0.5s;
+        width: 100%;
+        will-change: transform, opacity, filter;
       }
 
       .band-col.spread {
@@ -486,189 +54,275 @@
       }
 
       .band-col.stacked {
-        justify-content: flex-start;
         gap: 14px;
+        justify-content: flex-start;
+      }
+
+      .bands-container {
+        align-items: end;
+        bottom: 50px;
+        display: grid;
+        gap: 2%;
+        grid-template-columns: repeat(6, 1fr);
+        left: 0;
+        padding: 0 4%;
+        pointer-events: none;
+        position: fixed;
+        width: 100%;
+        z-index: 2;
+      }
+
+      .bands-container.visible .band-col {
+        filter: blur(0px);
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.8s ease-out, filter 0.8s ease-out;
+        transition-delay: calc(var(--i) * 0.1s);
+      }
+
+      .bands-container.visible .line {
+        transform: translateY(0);
+        transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+        transition-delay: var(--d, 0s);
+      }
+
+      .char {
+        animation: rotate-char linear forwards;
+        animation-timeline: scroll();
+        animation-timing-function: var(--ease-smooth);
+        color: white;
+        display: inline-block;
+        font-size: 25vmin;
+        line-height: 1;
+        will-change: transform;
+      }
+
+      .char-box {
+        animation-timing-function: var(--ease-smooth) !important;
+        display: inline-block;
+        will-change: transform, opacity;
+      }
+
+      .char-box:nth-child(1) {
+        animation: fade-spread-1 ease-out forwards;
+        animation-timeline: scroll();
+      }
+
+      .char-box:nth-child(2) {
+        animation: fade-spread-2 ease-out forwards;
+        animation-timeline: scroll();
+      }
+
+      .char-box:nth-child(3) {
+        animation: fade-spread-3 ease-out forwards;
+        animation-timeline: scroll();
+      }
+
+      .char-box:nth-child(4) {
+        animation: fade-spread-4 ease-out forwards;
+        animation-timeline: scroll();
+      }
+
+      .circle-bg {
+        align-items: center;
+        animation: morph-bg linear forwards;
+        animation-timeline: scroll();
+        animation-timing-function: var(--ease-smooth);
+        background: linear-gradient(var(--grad-angle), #ffffff 0%, #7ca2e0 45%);
+        border-radius: 50%;
+        display: flex;
+        height: 125vmin;
+        isolation: isolate;
+        justify-content: center;
+        position: relative;
+        width: 125vmin;
+      }
+
+      .circle-bg::after {
+        content: "";
+        height: 100%;
+        inset: 0;
+        mix-blend-mode: multiply;
+        opacity: 0.15;
+        pointer-events: none;
+        position: absolute;
+        width: 100%;
+        z-index: 1;
+      }
+
+      .circle-bg-wrapper {
+        animation: morph-bg-wrapper linear forwards;
+        animation-timeline: scroll();
+        animation-timing-function: var(--ease-smooth);
+        left: 50%;
+        pointer-events: none;
+        position: fixed;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1;
+      }
+
+      .contact-link {
+        color: white;
+        text-decoration: none;
+      }
+
+      .content-wrapper {
+        left: 50%;
+        pointer-events: none;
+        position: fixed;
+        text-align: center;
+        top: 30%;
+        transform: translate(-50%, -50%);
+        width: inherit;
+        z-index: 4;
+      }
+
+      .final-n {
+        animation-duration: 1ms;
+        animation-fill-mode: both;
+        animation-name: pop-up-n;
+        animation-timeline: scroll();
+        animation-timing-function: linear;
+        color: white;
+        font-family: "Lora", "Bodoni MT", "Times New Roman", serif;
+        font-size: 58px;
+        line-height: 1;
+        opacity: 0;
+        padding-bottom: 9px;
+        padding-left: 2px;
+        position: relative;
+        transform: translateY(150%);
+        z-index: 100;
+      }
+
+      .footer {
+        animation: fade-in-footer linear forwards;
+        animation-timeline: scroll();
+        animation-timing-function: var(--ease-smooth);
+        background-color: #5d8cda;
+        bottom: 0px;
+        color: white;
+        display: flex;
+        flex-direction: row;
+        font-family: "Inter", sans-serif;
+        font-size: 12px;
+        font-weight: 700;
+        justify-content: space-between;
+        padding: 12px 24px;
+        position: fixed;
+        text-transform: uppercase;
+        width: 100%;
+        z-index: 6;
+      }
+
+      .input-container {
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        left: 52%;
+        max-width: 500px;
+        pointer-events: none;
+        position: fixed;
+        top: 46%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+        z-index: 3;
+      }
+
+      .input-frame {
+        --mid-w: 400px;
+        --final-w: 385px;
+        animation: morph-frame linear forwards;
+        animation-timeline: scroll();
+        border: 1px solid #7ca2e0;
+        opacity: 1;
+        pointer-events: none;
+        position: fixed;
+        z-index: 10;
+      }
+
+      .input-wrapper {
+        pointer-events: auto;
+        position: relative;
+        width: 79%;
       }
 
       .line {
-        width: 100%;
+        background-color: #7ca2e0;
         height: 2px;
-        background-color: #5d8cda;
+        transform: translateY(80px);
+        transition: transform 0.01s 0.5s;
+        width: 100%;
+        will-change: transform;
       }
 
-      @keyframes fade-in-footer {
-        0%,
-        60% {
-          opacity: 0;
-        }
-        80%,
-        100% {
-          opacity: 1;
-        }
+      .main-text {
+        align-items: baseline;
+        display: flex;
+        gap: -1vmin;
+        left: 50%;
+        pointer-events: none;
+        position: fixed;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 2;
       }
 
-      @keyframes morph-bg-wrapper {
-        0% {
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-        }
-        100% {
-          top: 24px;
-          left: 24px;
-          transform: translate(0, 0);
-        }
+      .submit-btn {
+        animation: fade-in-input linear forwards;
+        animation-timeline: scroll();
+        background: #5d8cda;
+        border: none;
+        border-radius: 100px;
+        color: white;
+        cursor: pointer;
+        font-family: "Lora", "Bodoni MT", "Times New Roman", serif;
+        font-size: 19px;
+        margin-bottom: 4px;
+        opacity: 0;
+        padding: 14px 18px;
+        pointer-events: auto;
+        transition: background 0.3s ease;
       }
 
-      @keyframes morph-bg {
-        0% {
-          width: 125vmin;
-          height: 125vmin;
-          border-radius: 50%;
-          --grad-angle: 225deg;
-        }
-        55% {
-          border-radius: 50%;
-        }
-        100% {
-          width: 50px;
-          height: 50px;
-          border-radius: 3px;
-          --grad-angle: 135deg;
-        }
+      .submit-btn:hover {
+        background: #6b91cf;
       }
 
-      @keyframes morph-frame {
-        0% {
-          width: 150vmin;
-          height: 150vmin;
-          border-radius: 0px;
-          transform: translate(-50%, -50%) rotate(-60deg);
-          top: 50%;
-          left: 50%;
-        }
-        25% {
-          width: 125vmin;
-          height: 125vmin;
-          border-radius: 0px;
-          transform: translate(-50%, -50%) rotate(-25deg);
-          top: 50%;
-          left: 50%;
-        }
-        35% {
-          transform: translate(-50%, -50%) rotate(0deg);
-        }
-        75% {
-          border-radius: 0px;
-          width: var(--mid-w);
-          height: 80px;
-          transform: translate(-25%, -25%) rotate(0deg);
-        }
-        85% {
-          border-radius: 0px;
-        }
-        100% {
-          width: var(--final-w);
-          height: 53px;
-          border-radius: 64px;
-          transform: translate(0, 0) rotate(0deg);
-          top: 0px;
-          left: 0px;
-        }
+      .subtitle {
+        animation: fade-slide-in-subtitle linear forwards;
+        animation-timeline: scroll();
+        color: #666;
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        font-size: 1rem;
+        font-weight: 400;
+        opacity: 0;
+        transform: translateY(-10px);
+        will-change: transform, opacity, filter;
       }
 
-      @keyframes rotate-char {
-        0%,
-        10% {
-          transform: rotate(0deg);
-        }
-        70%,
-        100% {
-          transform: rotate(-10deg);
-        }
+      .text-input {
+        animation: fade-in-input linear forwards;
+        animation-timeline: scroll();
+        background: white;
+        border: none;
+        border-radius: 8px;
+        color: #333;
+        font-family: "Lora", "Bodoni MT", "Times New Roman", serif;
+        font-size: 18px;
+        opacity: 0;
+        outline: none;
+        padding: 16px 20px;
+        position: relative;
+        width: 100%;
+        z-index: 2;
       }
 
-      @keyframes fade-spread-1 {
-        0%,
-        50% {
-          opacity: 1;
-          transform: translateX(0);
-          filter: blur(0px);
-        }
-        60%,
-        100% {
-          opacity: 0;
-          transform: translateX(-5vmin);
-          filter: blur(12px);
-        }
-      }
-      @keyframes fade-spread-2 {
-        0%,
-        20% {
-          opacity: 1;
-          transform: translateX(0);
-          filter: blur(0px);
-        }
-        50%,
-        100% {
-          opacity: 0;
-          transform: translateX(5vmin);
-          filter: blur(12px);
-        }
-      }
-      @keyframes fade-spread-3 {
-        0%,
-        10% {
-          opacity: 1;
-          transform: translateX(0);
-          filter: blur(0px);
-        }
-        40%,
-        100% {
-          opacity: 0;
-          transform: translateX(15vmin);
-          filter: blur(12px);
-        }
-      }
-      @keyframes fade-spread-4 {
-        0%,
-        0% {
-          opacity: 1;
-          transform: translateX(0);
-          filter: blur(0px);
-        }
-        30%,
-        100% {
-          opacity: 0;
-          transform: translateX(5vmin);
-          filter: blur(12px);
-        }
+      .text-input::placeholder {
+        color: #999;
       }
 
-      @keyframes pop-up-n {
-        0%,
-        65% {
-          opacity: 0;
-          transform: translateY(100%);
-        }
-        90% {
-          opacity: 0;
-        }
-        100% {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      @keyframes fade-in-input {
-        0%,
-        90% {
-          opacity: 0;
-        }
-        100% {
-          opacity: 1;
-        }
-      }
       .text-input:-webkit-autofill,
       .text-input:-webkit-autofill:hover,
       .text-input:-webkit-autofill:focus,
@@ -677,41 +331,21 @@
         -webkit-text-fill-color: #333 !important;
       }
 
-      .input-container {
-        position: fixed;
-        top: 50%;
-        left: 52%;
-        transform: translate(-50%, -50%);
-        z-index: 3;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        width: 90%;
-        max-width: 500px;
-        pointer-events: none;
-      }
-
-      .input-wrapper {
-        position: relative;
-        width: 79%;
-        pointer-events: auto;
-      }
-
-      .input-frame {
-        --mid-w: 400px;
-        --final-w: 385px;
-        position: fixed;
-        opacity: 1;
-        border: 1px solid #7ca2e0;
-        pointer-events: none;
-        z-index: 10;
-        animation: morph-frame linear forwards;
+      .title {
+        animation: fade-slide-in-title linear forwards;
         animation-timeline: scroll();
+        color: #333;
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        font-size: 2rem;
+        font-weight: 600;
+        margin-bottom: 7px;
+        opacity: 0;
+        will-change: transform, opacity, filter;
       }
 
       @media (max-width: 600px) {
         .input-frame {
-          --desktop-: 270px;
+          --mid-w: 270px;
           --final-w: 250px;
         }
         .input-wrapper {
@@ -722,63 +356,75 @@
         }
       }
 
-      .text-input {
-        width: 100%;
-        padding: 16px 20px;
-        font-family: "Lora", "Bodoni MT", "Times New Roman", serif;
-        font-size: 18px;
-        color: #333;
-        background: white;
-        border: none;
-        border-radius: 8px;
-        outline: none;
-        position: relative;
-        z-index: 2;
-        opacity: 0;
-        animation: fade-in-input linear forwards;
-        animation-timeline: scroll();
+      @keyframes fade-in-footer {
+        0%, 60% { opacity: 0; }
+        80%, 100% { opacity: 1; }
       }
 
-      .text-input::placeholder {
-        color: #999;
+      @keyframes fade-in-input {
+        0%, 90% { opacity: 0; }
+        100% { opacity: 1; }
       }
 
-      .submit-btn {
-        padding: 14px 18px;
-        font-family: "Lora", "Bodoni MT", "Times New Roman", serif;
-        font-size: 19px;
-        color: white;
-        background: #5d8cda;
-        border: none;
-        border-radius: 100px;
-        cursor: pointer;
-        transition: background 0.3s ease;
-        pointer-events: auto;
-        opacity: 0;
-        animation: fade-in-input linear forwards;
-        animation-timeline: scroll();
-        margin-bottom: 4px;
+      @keyframes fade-slide-in-subtitle {
+        0%, 70% { filter: blur(12px); opacity: 0; transform: translateY(-10px) scale(1.15); }
+        90%, 100% { filter: blur(0px); opacity: 1; transform: translateY(0) scale(1); }
       }
 
-      .submit-btn:hover {
-        background: #6b91cf;
+      @keyframes fade-slide-in-title {
+        0%, 60% { filter: blur(12px); opacity: 0; transform: translateY(-10px) scale(1.15); }
+        85%, 100% { filter: blur(0px); opacity: 1; transform: translateY(0) scale(1); }
       }
 
-      .char-box:nth-child(1) {
-        animation: fade-spread-1 linear forwards;
-        animation-timeline: scroll();
+      @keyframes fade-spread-1 {
+        0%, 50% { filter: blur(0px); opacity: 1; transform: translateX(0); }
+        60%, 100% { filter: blur(12px); opacity: 0; transform: translateX(-5vmin); }
       }
-      .char-box:nth-child(2) {
-        animation: fade-spread-2 linear forwards;
-        animation-timeline: scroll();
+
+      @keyframes fade-spread-2 {
+        0%, 20% { filter: blur(0px); opacity: 1; transform: translateX(0); }
+        50%, 100% { filter: blur(12px); opacity: 0; transform: translateX(5vmin); }
       }
-      .char-box:nth-child(3) {
-        animation: fade-spread-3 linear forwards;
-        animation-timeline: scroll();
+
+      @keyframes fade-spread-3 {
+        0%, 10% { filter: blur(0px); opacity: 1; transform: translateX(0); }
+        40%, 100% { filter: blur(12px); opacity: 0; transform: translateX(15vmin); }
       }
-      .char-box:nth-child(4) {
-        animation: fade-spread-4 linear forwards;
-        animation-timeline: scroll();
+
+      @keyframes fade-spread-4 {
+        0%, 0% { filter: blur(0px); opacity: 1; transform: translateX(0); }
+        30%, 100% { filter: blur(12px); opacity: 0; transform: translateX(5vmin); }
+      }
+
+      @keyframes morph-bg {
+        0% { --grad-angle: 225deg; border-radius: 50%; height: 125vmin; width: 125vmin; }
+        55% { border-radius: 50%; }
+        100% { --grad-angle: 135deg; border-radius: 3px; height: 50px; width: 50px; }
+      }
+
+      @keyframes morph-bg-wrapper {
+        0% { left: 50%; top: 50%; transform: translate(-50%, -50%); }
+        100% { left: 24px; top: 24px; transform: translate(0, 0); }
+      }
+
+      @keyframes morph-frame {
+        0% { border-radius: 0px; height: 150vmin; left: 50%; top: 50%; transform: translate(-50%, -50%) rotate(-60deg); width: 150vmin; }
+        25% { border-radius: 0px; height: 125vmin; left: 50%; top: 50%; transform: translate(-50%, -50%) rotate(-25deg); width: 125vmin; }
+        35% { transform: translate(-50%, -50%) rotate(0deg); }
+        75% { border-radius: 0px; height: 80px; transform: translate(-25%, -25%) rotate(0deg); width: var(--mid-w); }
+        85% { border-radius: 0px; }
+        100% { border-radius: 64px; height: 53px; left: 0px; top: 0px; transform: translate(0, 0) rotate(0deg); width: var(--final-w); }
+      }
+
+      @keyframes pop-up-n {
+        0%, 65% { opacity: 0; transform: translateY(100%); }
+        90% { opacity: 0; }
+        100% { opacity: 1; transform: translateY(0); }
+      }
+
+      @keyframes rotate-char {
+        0%, 10% { transform: rotate(0deg); }
+        70%, 100% { transform: rotate(-10deg); }
       }
     </style>
   </head>
@@ -806,54 +452,48 @@
       </div>
       <button class="submit-btn">Join</button>
     </div>
-    <div class="bands">
-      <div class="bands-column-1"></div>
-    </div>
+    
     <div class="bands-container">
-      <!-- Col 1: 2 lines, spread apart (height approx 130px) -->
       <div class="band-col spread" style="height: 130px; --i: 0">
-        <div class="line"></div>
-        <div class="line"></div>
+        <div class="line" style="margin-bottom: 32px; --d: 0.1s"></div>
+        <div class="line" style="--d: 0.1s"></div>
       </div>
 
-      <!-- Col 2: 3 lines, stacked closely at bottom -->
-      <div class="band-col stacked" style="--i: 1">
-        <div class="line"></div>
-        <div class="line"></div>
-        <div class="line"></div>
+      <div class="band-col stacked" style="--i: 6; gap: 9px;">
+        <div class="line" style="margin-bottom: 16px; --d: 0.2s"></div>
+        <div class="line" style="--d: 0.2s"></div>
+        <div class="line" style="margin-bottom: 17px; --d: 0.1s"></div>
       </div>
 
-      <!-- Col 3: 2 lines, spread apart (height approx 100px) -->
-      <div class="band-col spread" style="height: 100px; --i: 2">
-        <div class="line"></div>
-        <div class="line"></div>
+      <div class="band-col" style="height: 100px; --i: 2">
+        <div class="line" style="--d: 0.05s"></div>
+        <div class="line" style="margin-bottom: 84px; --d: 0.35s"></div>
+        <div class="line" style="margin-bottom: 2px; --d: 0.25s"></div>
       </div>
 
-      <!-- Col 4: 2 lines, stacked closely at bottom -->
-      <div class="band-col stacked" style="--i: 3">
-        <div class="line"></div>
-        <div class="line"></div>
+      <div class="band-col stacked" style="--i: 2">
+        <div class="line" style="--d: 0.3s"></div>
+        <div class="line" style="--d: 0.05s"></div>
       </div>
 
-      <!-- Col 5: 3 lines, stacked closely at bottom -->
-      <div class="band-col stacked" style="--i: 4">
-        <div class="line"></div>
-        <div class="line"></div>
-        <div class="line"></div>
+      <div class="band-col stacked" style="--i: 4; gap: 3px;">
+        <div class="line" style="margin-bottom: 29px; --d: 0.1s"></div>
+        <div class="line" style="--d: 0.2s"></div>
+        <div class="line" style="margin-bottom: 25px; --d: 0.15s"></div>
+        <div class="line" style="margin-bottom: 13px; --d: 0.3s"></div>
       </div>
 
-      <!-- Col 6: 2 lines, spread apart (height approx 160px) -->
-      <div class="band-col spread" style="height: 160px; --i: 5">
-        <div class="line"></div>
-        <div class="line"></div>
+      <div class="band-col" style="height: 180px; --i: 3">
+        <div class="line" style="margin-bottom: 45px; --d: 0.1s"></div>
+        <div class="line" style="margin-bottom: 105px; --d: 0.25s"></div>
       </div>
     </div>
+    
     <div class="footer">
-      <a href="mailto:zacharymichaelmoore@gmail.com" class="contact-link"
-        >Contact</a
-      >
+      <a href="mailto:zacharymichaelmoore@gmail.com" class="contact-link">Contact</a>
       <p>Copyright Nala</p>
     </div>
+
     <script>
       const bandsContainer = document.querySelector(".bands-container");
 
@@ -870,11 +510,11 @@
       });
     </script>
     <script>
-      const FORM_BASE_URL =
-        "https://docs.google.com/forms/d/e/1FAIpQLScNV_za4VU8GqcpciHPAwZBoyrl7iYCFr1I_fIGdzPkQ1hOww/viewform";
+      const FORM_BASE_URL = "https://docs.google.com/forms/d/e/1FAIpQLScNV_za4VU8GqcpciHPAwZBoyrl7iYCFr1I_fIGdzPkQ1hOww/viewform";
       const EMAIL_ENTRY_ID = "entry.61043093";
       const submitBtn = document.querySelector(".submit-btn");
       const emailInput = document.querySelector(".text-input");
+
       function redirectToForm() {
         const email = emailInput.value;
         if (!email) {
@@ -882,10 +522,7 @@
           return;
         }
 
-        const finalUrl = `${FORM_BASE_URL}?usp=pp_url&${EMAIL_ENTRY_ID}=${encodeURIComponent(
-          email
-        )}`;
-
+        const finalUrl = `${FORM_BASE_URL}?usp=pp_url&${EMAIL_ENTRY_ID}=${encodeURIComponent(email)}`;
         window.open(finalUrl, "_blank");
       }
 
