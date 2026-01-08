@@ -84,7 +84,7 @@
 
       .bands-container.visible .line {
         transform: translateY(0);
-        transition: transform var(--s, 1s) cubic-bezier(0.05, 0.7, 0.1, 1)
+        transition: transform var(--s, 0s) cubic-bezier(0.05, 0.7, 0.1, 1)
           var(--d, 0s);
       }
 
@@ -595,12 +595,12 @@
 
     <div class="bands-container">
       <div class="band-col spread" style="height: 130px; --i: 0">
-        <div class="line" style="margin-bottom: 32px; --d: 0.1s; --s: 2.5s"></div>
+        <div class="line" style="margin-bottom: 32px; --d: 0.1s; --s: 1.5s"></div>
         <div class="line" style="--d: 0.3s; --s: 1.8s"></div>
       </div>
 
       <div class="band-col stacked" style="--i: 8; gap: 9px;">
-        <div class="line" style="margin-bottom: 16px; --d: 0.2s; --s: 3.1s"></div>
+        <div class="line" style="margin-bottom: 16px; --d: 0.2s; --s: 2.1s"></div>
         <div class="line" style="--d: 0.4s; --s: 2.0s"></div>
         <div class="line" style="margin-bottom: 17px; --d: 0.1s; --s: 1.5s"></div>
       </div>
