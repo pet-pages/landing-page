@@ -17,7 +17,7 @@
 
       :root {
         --ease-smooth: cubic-bezier(0.65, 0, 0.35, 1);
-        --nala-blue: #5d8cda;
+        --nala-blue: #3A71CB;
         --text-dark: #222;
         --text-grey: #717171;
       }
@@ -40,13 +40,13 @@
         height: 300vh;
         transition: overflow 0.5s;
       }
-      
+
       body.quiz-active .circle-bg-wrapper {
         animation: none !important;
         left: 24px !important;
         top: 24px !important;
         transform: translate(0, 0) !important;
-        z-index: 60 !important; 
+        z-index: 60 !important;
       }
 
       body.quiz-active .circle-bg {
@@ -55,7 +55,7 @@
         height: 50px !important;
         width: 50px !important;
         background: linear-gradient(135deg, #ffffff 0%, #7ca2e0 45%) !important;
-        pointer-events: auto !important; 
+        pointer-events: auto !important;
       }
 
       body.quiz-active .final-n {
@@ -119,7 +119,7 @@
         z-index: 2;
         transition: filter 1s ease;
       }
-      
+
       .bands-container.blurred-lines {
         filter: blur(5px) !important;
       }
@@ -156,10 +156,22 @@
         will-change: transform, opacity;
       }
 
-      .char-box:nth-child(1) { animation: fade-spread-1 ease-out forwards; animation-timeline: scroll(); }
-      .char-box:nth-child(2) { animation: fade-spread-2 ease-out forwards; animation-timeline: scroll(); }
-      .char-box:nth-child(3) { animation: fade-spread-3 ease-out forwards; animation-timeline: scroll(); }
-      .char-box:nth-child(4) { animation: fade-spread-4 ease-out forwards; animation-timeline: scroll(); }
+      .char-box:nth-child(1) {
+        animation: fade-spread-1 ease-out forwards;
+        animation-timeline: scroll();
+      }
+      .char-box:nth-child(2) {
+        animation: fade-spread-2 ease-out forwards;
+        animation-timeline: scroll();
+      }
+      .char-box:nth-child(3) {
+        animation: fade-spread-3 ease-out forwards;
+        animation-timeline: scroll();
+      }
+      .char-box:nth-child(4) {
+        animation: fade-spread-4 ease-out forwards;
+        animation-timeline: scroll();
+      }
 
       .circle-bg {
         align-items: center;
@@ -254,11 +266,11 @@
         z-index: 6;
       }
 
-      html.quiz-active, 
+      html.quiz-active,
       body.quiz-active {
         overflow: hidden !important;
       }
-      
+
       body.quiz-active .footer {
         animation: none !important;
         opacity: 1 !important;
@@ -288,6 +300,12 @@
         pointer-events: none;
         position: fixed;
         z-index: 10;
+        border-radius: 0px;
+        height: 150vmin;
+        width: 150vmin;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%) rotate(-60deg);
       }
 
       .input-wrapper {
@@ -393,7 +411,7 @@
       .landing-elements {
         transition: opacity 0.4s ease;
       }
-      
+
       .landing-elements.hidden {
         opacity: 0;
         pointer-events: none;
@@ -405,7 +423,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        z-index: 5; 
+        z-index: 5;
         display: flex;
         pointer-events: none;
         opacity: 0;
@@ -509,125 +527,270 @@
         will-change: transform;
       }
 
-       body.quiz-active .carousel-strip {
+      body.quiz-active .carousel-strip {
         animation: tape-reel 1.8s cubic-bezier(0.07, 0.63, 0.17, 1.06) forwards;
       }
 
       .carousel-image {
         width: 33rem;
         height: 33rem;
-        background-color: #ccc;
         flex-shrink: 0;
         position: relative;
-      }
-
-      .carousel-image:nth-child(2n) {
-        background-color: #bbb;
-      }
-      .carousel-image:nth-child(3n) {
-        background-color: #999;
+        object-fit: cover;
+        display: block;
       }
 
       @keyframes tape-reel {
-        0% { transform: translateY(0); }
-        100% { transform: translateY(calc(-28% - 0.5rem)); } 
+        0% {
+          transform: translateY(0);
+        }
+        100% {
+          transform: translateY(calc(-28% - 0.5rem));
+        }
       }
 
       @media (max-width: 900px) {
-        .quiz-container { flex-direction: column; }
-        .quiz-img-col { 
-            position: absolute;
-            opacity: 0.3;
-            z-index: -1;
-            right: -20%;
-            height: 100%;
+        .quiz-container {
+          flex-direction: column;
+        }
+        .quiz-img-col {
+          position: absolute;
+          opacity: 0.3;
+          z-index: -1;
+          right: -20%;
+          height: 100%;
         }
         .carousel-wrapper {
-            width: 20rem;
+          width: 20rem;
         }
         .carousel-image {
-            width: 20rem;
-            height: 20rem;
+          width: 20rem;
+          height: 20rem;
         }
-        .quiz-title { font-size: 2rem; }
+        .quiz-title {
+          font-size: 2rem;
+        }
       }
 
       @media (max-width: 600px) {
-        .input-frame { --mid-w: 270px; --final-w: 250px; }
-        .input-wrapper { width: 76% !important; }
-        .submit-btn { margin-bottom: 0px !important; }
-        
+        .input-frame {
+          --mid-w: 270px;
+          --final-w: 250px;
+        }
+        .input-wrapper {
+          width: 76% !important;
+        }
+        .submit-btn {
+          margin-bottom: 0px !important;
+        }
+
         .quiz-img-col {
-            right: -40%;
+          right: -40%;
         }
       }
 
       @keyframes fade-in-footer {
-        0%, 60% { opacity: 0; }
-        80%, 100% { opacity: 1; }
+        0%,
+        60% {
+          opacity: 0;
+        }
+        80%,
+        100% {
+          opacity: 1;
+        }
       }
 
       @keyframes fade-in-input {
-        0%, 90% { opacity: 0; }
-        100% { opacity: 1; }
+        0%,
+        90% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
       }
 
       @keyframes fade-slide-in-subtitle {
-        0%, 70% { filter: blur(12px); opacity: 0; transform: translateY(-10px) scale(1.15); }
-        90%, 100% { filter: blur(0px); opacity: 1; transform: translateY(0) scale(1); }
+        0%,
+        70% {
+          filter: blur(12px);
+          opacity: 0;
+          transform: translateY(-10px) scale(1.15);
+        }
+        90%,
+        100% {
+          filter: blur(0px);
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
       }
 
       @keyframes fade-slide-in-title {
-        0%, 60% { filter: blur(12px); opacity: 0; transform: translateY(-10px) scale(1.15); }
-        85%, 100% { filter: blur(0px); opacity: 1; transform: translateY(0) scale(1); }
+        0%,
+        60% {
+          filter: blur(12px);
+          opacity: 0;
+          transform: translateY(-10px) scale(1.15);
+        }
+        85%,
+        100% {
+          filter: blur(0px);
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
       }
 
       @keyframes fade-spread-1 {
-        0%, 50% { filter: blur(0px); opacity: 1; transform: translateX(0); }
-        60%, 100% { filter: blur(12px); opacity: 0; transform: translateX(-5vmin); }
+        0%,
+        50% {
+          filter: blur(0px);
+          opacity: 1;
+          transform: translateX(0);
+        }
+        60%,
+        100% {
+          filter: blur(12px);
+          opacity: 0;
+          transform: translateX(-5vmin);
+        }
       }
       @keyframes fade-spread-2 {
-        0%, 20% { filter: blur(0px); opacity: 1; transform: translateX(0); }
-        50%, 100% { filter: blur(12px); opacity: 0; transform: translateX(5vmin); }
+        0%,
+        20% {
+          filter: blur(0px);
+          opacity: 1;
+          transform: translateX(0);
+        }
+        50%,
+        100% {
+          filter: blur(12px);
+          opacity: 0;
+          transform: translateX(5vmin);
+        }
       }
       @keyframes fade-spread-3 {
-        0%, 10% { filter: blur(0px); opacity: 1; transform: translateX(0); }
-        40%, 100% { filter: blur(12px); opacity: 0; transform: translateX(15vmin); }
+        0%,
+        10% {
+          filter: blur(0px);
+          opacity: 1;
+          transform: translateX(0);
+        }
+        40%,
+        100% {
+          filter: blur(12px);
+          opacity: 0;
+          transform: translateX(15vmin);
+        }
       }
       @keyframes fade-spread-4 {
-        0%, 0% { filter: blur(0px); opacity: 1; transform: translateX(0); }
-        30%, 100% { filter: blur(12px); opacity: 0; transform: translateX(5vmin); }
+        0%,
+        0% {
+          filter: blur(0px);
+          opacity: 1;
+          transform: translateX(0);
+        }
+        30%,
+        100% {
+          filter: blur(12px);
+          opacity: 0;
+          transform: translateX(5vmin);
+        }
       }
 
       @keyframes morph-bg {
-        0% { --grad-angle: 225deg; border-radius: 50%; height: 125vmin; width: 125vmin; }
-        55% { border-radius: 50%; }
-        100% { --grad-angle: 135deg; border-radius: 3px; height: 50px; width: 50px; }
+        0% {
+          --grad-angle: 225deg;
+          border-radius: 50%;
+          height: 125vmin;
+          width: 125vmin;
+        }
+        55% {
+          border-radius: 50%;
+        }
+        100% {
+          --grad-angle: 135deg;
+          border-radius: 3px;
+          height: 50px;
+          width: 50px;
+        }
       }
 
       @keyframes morph-bg-wrapper {
-        0% { left: 50%; top: 50%; transform: translate(-50%, -50%); }
-        100% { left: 24px; top: 24px; transform: translate(0, 0); }
+        0% {
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+        }
+        100% {
+          left: 24px;
+          top: 24px;
+          transform: translate(0, 0);
+        }
       }
 
       @keyframes morph-frame {
-        0% { border-radius: 0px; height: 150vmin; left: 50%; top: 50%; transform: translate(-50%, -50%) rotate(-60deg); width: 150vmin; }
-        25% { border-radius: 0px; height: 125vmin; left: 50%; top: 50%; transform: translate(-50%, -50%) rotate(-25deg); width: 125vmin; }
-        35% { transform: translate(-50%, -50%) rotate(0deg); }
-        75% { border-radius: 0px; height: 80px; transform: translate(-25%, -25%) rotate(0deg); width: var(--mid-w); }
-        85% { border-radius: 0px; }
-        100% { border-radius: 64px; height: 53px; left: 0px; top: 0px; transform: translate(0, 0) rotate(0deg); width: var(--final-w); }
+        0% {
+          border-radius: 0px;
+          height: 150vmin;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%) rotate(-60deg);
+          width: 150vmin;
+        }
+        25% {
+          border-radius: 0px;
+          height: 125vmin;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%) rotate(-25deg);
+          width: 125vmin;
+        }
+        35% {
+          transform: translate(-50%, -50%) rotate(0deg);
+        }
+        75% {
+          border-radius: 0px;
+          height: 80px;
+          transform: translate(-25%, -25%) rotate(0deg);
+          width: var(--mid-w);
+        }
+        85% {
+          border-radius: 0px;
+        }
+        100% {
+          border-radius: 64px;
+          height: 53px;
+          left: 0px;
+          top: 0px;
+          transform: translate(0, 0) rotate(0deg);
+          width: var(--final-w);
+        }
       }
 
       @keyframes pop-up-n {
-        0%, 65% { opacity: 0; transform: translateY(100%); }
-        90% { opacity: 0; }
-        100% { opacity: 1; transform: translateY(0); }
+        0%,
+        65% {
+          opacity: 0;
+          transform: translateY(100%);
+        }
+        90% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
       }
 
       @keyframes rotate-char {
-        0%, 10% { transform: rotate(0deg); }
-        70%, 100% { transform: rotate(-10deg); }
+        0%,
+        10% {
+          transform: rotate(0deg);
+        }
+        70%,
+        100% {
+          transform: rotate(-10deg);
+        }
       }
     </style>
   </head>
@@ -635,9 +798,9 @@
     <nav>
       <div class="circle-bg-wrapper">
         <a href="/" class="n-logo-link">
-            <div class="circle-bg">
-                <div class="final-n">n</div>
-            </div>
+          <div class="circle-bg">
+            <div class="final-n">n</div>
+          </div>
         </a>
       </div>
       <div
@@ -671,68 +834,93 @@
     </nav>
 
     <div class="landing-elements">
-        <div class="main-text">
-            <span class="char-box"><span class="char">n</span></span>
-            <span class="char-box"><span class="char">a</span></span>
-            <span class="char-box"><span class="char">l</span></span>
-            <span class="char-box"><span class="char">a</span></span>
+      <div class="main-text">
+        <span class="char-box"><span class="char">n</span></span>
+        <span class="char-box"><span class="char">a</span></span>
+        <span class="char-box"><span class="char">l</span></span>
+        <span class="char-box"><span class="char">a</span></span>
+      </div>
+      <main class="content-wrapper">
+        <h1 class="title">Your dog's emotions decoded.</h1>
+        <p class="subtitle">join the waitlist</p>
+      </main>
+      <div class="input-container">
+        <div class="input-wrapper">
+          <div class="input-frame"></div>
+          <input type="text" class="text-input" placeholder="Enter email" />
         </div>
-        <main class="content-wrapper">
-            <h1 class="title">Your dog's emotions decoded.</h1>
-            <p class="subtitle">join the waitlist</p>
-        </main>
-        <div class="input-container">
-            <div class="input-wrapper">
-            <div class="input-frame"></div>
-            <input type="text" class="text-input" placeholder="Enter email" />
-            </div>
-            <button class="submit-btn">Join</button>
-        </div>
+        <button class="submit-btn">Join</button>
+      </div>
     </div>
 
     <div id="quiz-view">
-        <div class="quiz-container">
-            <div class="quiz-text-col">
-                <h1 class="quiz-title">Find your breed</h1>
-                <p class="quiz-desc">
-                    Describe your lifestyle, budget, and personality in this quiz and let our algorithm match you with the ideal dog breed for you.
-                </p>
-                <div>
-                    <button class="quiz-btn">Start Quiz</button>
-                    <span class="quiz-time">5 minutes</span>
-                </div>
-            </div>
-            <div class="quiz-img-col">
-                <div class="carousel-wrapper">
-                    <div class="carousel-strip">
-                        <div class="carousel-image"></div>
-                        <div class="carousel-image"></div>
-                        <div class="carousel-image"></div>
-                        <div class="carousel-image"></div>
-                        <div class="carousel-image"></div>
-                        <div class="carousel-image"></div>
-                    </div>
-                </div>
-            </div>
+      <div class="quiz-container">
+        <div class="quiz-text-col">
+          <h1 class="quiz-title">Find your breed</h1>
+          <p class="quiz-desc">
+            Describe your lifestyle, budget, and personality in this quiz and
+            let our algorithm match you with the ideal dog breed for you.
+          </p>
+          <div>
+            <button class="quiz-btn">Start Quiz</button>
+            <span class="quiz-time">5 minutes</span>
+          </div>
         </div>
+        <div class="quiz-img-col">
+          <div class="carousel-wrapper">
+            <div class="carousel-strip">
+              <img
+                src="./assets/carousel-image-01.webp"
+                class="carousel-image"
+                alt="Dog Breed 1"
+              />
+              <img
+                src="./assets/carousel-image-02.webp"
+                class="carousel-image"
+                alt="Dog Breed 2"
+              />
+              <img
+                src="./assets/carousel-image-03.webp"
+                class="carousel-image"
+                alt="Dog Breed 3"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="bands-container">
       <div class="band-col spread" style="height: 130px; --i: 0">
-        <div class="line" style="margin-bottom: 32px; --d: 0.1s; --s: 1.5s"></div>
+        <div
+          class="line"
+          style="margin-bottom: 32px; --d: 0.1s; --s: 1.5s"
+        ></div>
         <div class="line" style="--d: 0.3s; --s: 1.8s"></div>
       </div>
 
       <div class="band-col stacked" style="--i: 8; gap: 9px">
-        <div class="line" style="margin-bottom: 16px; --d: 0.2s; --s: 2.1s"></div>
+        <div
+          class="line"
+          style="margin-bottom: 16px; --d: 0.2s; --s: 2.1s"
+        ></div>
         <div class="line" style="--d: 0.4s; --s: 2s"></div>
-        <div class="line" style="margin-bottom: 17px; --d: 0.1s; --s: 1.5s"></div>
+        <div
+          class="line"
+          style="margin-bottom: 17px; --d: 0.1s; --s: 1.5s"
+        ></div>
       </div>
 
       <div class="band-col" style="height: 100px; --i: 4">
         <div class="line" style="--d: 0.15s; --s: 2.8s"></div>
-        <div class="line" style="margin-bottom: 84px; --d: 0.35s; --s: 0.9s"></div>
-        <div class="line" style="margin-bottom: 2px; --d: 0.25s; --s: 1.6s"></div>
+        <div
+          class="line"
+          style="margin-bottom: 84px; --d: 0.35s; --s: 0.9s"
+        ></div>
+        <div
+          class="line"
+          style="margin-bottom: 2px; --d: 0.25s; --s: 1.6s"
+        ></div>
       </div>
 
       <div class="band-col stacked" style="--i: 4">
@@ -741,69 +929,87 @@
       </div>
 
       <div class="band-col stacked" style="--i: 6; gap: 3px">
-        <div class="line" style="margin-bottom: 29px; --d: 0.1s; --s: 1.6s"></div>
+        <div
+          class="line"
+          style="margin-bottom: 29px; --d: 0.1s; --s: 1.6s"
+        ></div>
         <div class="line" style="--d: 0.4s; --s: 2.9s"></div>
-        <div class="line" style="margin-bottom: 25px; --d: 0.2s; --s: 1.7s"></div>
-        <div class="line" style="margin-bottom: 13px; --d: 0.5s; --s: 1.3s"></div>
+        <div
+          class="line"
+          style="margin-bottom: 25px; --d: 0.2s; --s: 1.7s"
+        ></div>
+        <div
+          class="line"
+          style="margin-bottom: 13px; --d: 0.5s; --s: 1.3s"
+        ></div>
       </div>
 
       <div class="band-col" style="height: 180px; --i: 5">
-        <div class="line" style="margin-bottom: 45px; --d: 0.2s; --s: 2.5s"></div>
-        <div class="line" style="margin-bottom: 105px; --d: 0.4s; --s: 1.2s"></div>
+        <div
+          class="line"
+          style="margin-bottom: 45px; --d: 0.2s; --s: 2.5s"
+        ></div>
+        <div
+          class="line"
+          style="margin-bottom: 105px; --d: 0.4s; --s: 1.2s"
+        ></div>
       </div>
     </div>
 
     <div class="footer">
-      <a href="mailto:zacharymichaelmoore@gmail.com" class="contact-link">Contact</a>
+      <a href="mailto:zacharymichaelmoore@gmail.com" class="contact-link"
+        >Contact</a
+      >
       <p>Copyright Nala</p>
     </div>
 
     <script>
       const bandsContainer = document.querySelector(".bands-container");
-      const findBreedBtn = document.getElementById('find-breed-btn');
-      const landingElements = document.querySelector('.landing-elements');
-      const quizView = document.getElementById('quiz-view');
-      const formUrl = "https://docs.google.com/forms/d/e/1FAIpQLScNV_za4VU8GqcpciHPAwZBoyrl7iYCFr1I_fIGdzPkQ1hOww/viewform";
+      const findBreedBtn = document.getElementById("find-breed-btn");
+      const landingElements = document.querySelector(".landing-elements");
+      const quizView = document.getElementById("quiz-view");
+      const formUrl =
+        "https://docs.google.com/forms/d/e/1FAIpQLScNV_za4VU8GqcpciHPAwZBoyrl7iYCFr1I_fIGdzPkQ1hOww/viewform";
       const entryId = "entry.61043093";
       const submitBtn = document.querySelector(".submit-btn");
       const emailInput = document.querySelector(".text-input");
 
       window.addEventListener("scroll", () => {
-        if (!document.body.classList.contains('quiz-active')) {
-            const scrollTop = window.scrollY;
-            const docHeight = document.body.scrollHeight - window.innerHeight;
-            const scrollPercent = scrollTop / docHeight;
+        if (!document.body.classList.contains("quiz-active")) {
+          const scrollTop = window.scrollY;
+          const docHeight = document.body.scrollHeight - window.innerHeight;
+          const scrollPercent = scrollTop / docHeight;
 
-            if (scrollPercent > 0.8) {
-              bandsContainer.classList.add("visible");
-            } else {
-              bandsContainer.classList.remove("visible");
-            }
+          if (scrollPercent > 0.8) {
+            bandsContainer.classList.add("visible");
+          } else {
+            bandsContainer.classList.remove("visible");
+          }
         }
       });
 
       function activateQuizView() {
-          landingElements.classList.add('hidden');
-          
-          document.body.classList.add('quiz-active');
-          document.documentElement.classList.add('quiz-active');
-          document.body.style.overflow = 'hidden';
+        landingElements.classList.add("hidden");
 
-          quizView.classList.add('active');
-          
-          bandsContainer.classList.add('blurred-lines');
-          bandsContainer.classList.add('visible'); 
+        document.body.classList.add("quiz-active");
+        document.documentElement.classList.add("quiz-active");
+        document.body.style.overflow = "hidden";
 
-          window.scrollTo(0, document.body.scrollHeight);
+        quizView.classList.add("active");
+
+        bandsContainer.classList.add("blurred-lines");
+        bandsContainer.classList.add("visible");
+
+        window.scrollTo(0, document.body.scrollHeight);
       }
 
       function handleHash() {
-          if (window.location.hash === '#find-your-breed') {
-              activateQuizView();
-          }
+        if (window.location.hash === "#find-your-breed") {
+          activateQuizView();
+        }
       }
 
-      window.addEventListener('load', handleHash);
+      window.addEventListener("load", handleHash);
 
       function redirectToForm() {
         const email = emailInput.value;
@@ -811,7 +1017,9 @@
           alert("Please enter your email first.");
           return;
         }
-        const finalUrl = `${formUrl}?usp=pp_url&${entryId}=${encodeURIComponent(email)}`;
+        const finalUrl = `${formUrl}?usp=pp_url&${entryId}=${encodeURIComponent(
+          email
+        )}`;
         window.open(finalUrl, "_blank");
       }
 
@@ -821,26 +1029,25 @@
           redirectToForm();
         }
       });
-      
-      findBreedBtn.addEventListener('click', () => {
-        landingElements.classList.add('hidden');
+
+      findBreedBtn.addEventListener("click", () => {
+        landingElements.classList.add("hidden");
 
         const docHeight = document.body.scrollHeight;
         window.scrollTo({
-            top: docHeight,
-            behavior: 'smooth'
+          top: docHeight,
+          behavior: "smooth",
         });
 
         setTimeout(() => {
-            history.pushState(null, null, '#find-your-breed');
+          history.pushState(null, null, "#find-your-breed");
 
-            document.body.classList.add('quiz-active');
-            document.body.style.overflow = 'hidden';
+          document.body.classList.add("quiz-active");
+          document.body.style.overflow = "hidden";
 
-            quizView.classList.add('active');
-            
-            bandsContainer.classList.add('blurred-lines');
-            
+          quizView.classList.add("active");
+
+          bandsContainer.classList.add("blurred-lines");
         }, 850);
       });
     </script>
