@@ -37,11 +37,9 @@
       body {
         background-color: #ffffff;
         font-family: "Lora", "Bodoni MT", "Times New Roman", serif;
-        height: 250vh;
+        height: 300vh;
         transition: overflow 0.5s;
       }
-
-      /* --- STATE LOCKING: Disables Landing Animations when Quiz is Active --- */
       
       body.quiz-active .circle-bg-wrapper {
         animation: none !important;
@@ -57,7 +55,6 @@
         height: 50px !important;
         width: 50px !important;
         background: linear-gradient(135deg, #ffffff 0%, #7ca2e0 45%) !important;
-        /* Re-enable clicks so the link works */
         pointer-events: auto !important; 
       }
 
@@ -67,16 +64,14 @@
         transform: translateY(0) !important;
       }
 
-      /* Enable the link only when quiz is active */
       .n-logo-link {
         text-decoration: none;
-        pointer-events: none; /* Disabled normally so big circle isn't clickable */
+        pointer-events: none;
       }
       body.quiz-active .n-logo-link {
-        pointer-events: auto; /* Enabled when it's just the small logo */
+        pointer-events: auto;
       }
 
-      /* Hide the Find Breed Button when quiz is active */
       #find-breed-btn {
         transition: opacity 0.3s ease, visibility 0.3s;
       }
@@ -259,6 +254,16 @@
         z-index: 6;
       }
 
+      html.quiz-active, 
+      body.quiz-active {
+        overflow: hidden !important;
+      }
+      
+      body.quiz-active .footer {
+        animation: none !important;
+        opacity: 1 !important;
+      }
+
       .input-container {
         align-items: center;
         display: flex;
@@ -431,7 +436,7 @@
         flex-direction: column;
         justify-content: center;
         padding-right: 40px;
-        padding-left: 5rem;
+        padding-left: 6rem;
         padding-bottom: 10rem;
       }
 
@@ -505,7 +510,7 @@
       }
 
        body.quiz-active .carousel-strip {
-        animation: tape-reel 1s cubic-bezier(0, 0, 0, 1.05) forwards;
+        animation: tape-reel 1.8s cubic-bezier(0.07, 0.63, 0.17, 1.06) forwards;
       }
 
       .carousel-image {
@@ -781,6 +786,7 @@
           landingElements.classList.add('hidden');
           
           document.body.classList.add('quiz-active');
+          document.documentElement.classList.add('quiz-active');
           document.body.style.overflow = 'hidden';
 
           quizView.classList.add('active');
@@ -835,7 +841,7 @@
             
             bandsContainer.classList.add('blurred-lines');
             
-        }, 1200);
+        }, 850);
       });
     </script>
   </body>
