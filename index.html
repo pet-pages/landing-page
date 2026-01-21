@@ -7,7 +7,7 @@
       name="description"
       content="The Nala Smart Dog Collar helps you decode your dog's emotion."
     />
-    <title>Nala Pet - Smart Dog Collar</title>
+    <title>Onawa Pet - Smart Dog Collar</title>
     <style>
       @property --grad-angle {
         inherits: false;
@@ -17,7 +17,7 @@
 
       :root {
         --ease-smooth: cubic-bezier(0.65, 0, 0.35, 1);
-        --nala-blue: #3A71CB;
+        --onawa-blue: #3a71cb;
         --text-dark: #222;
         --text-grey: #717171;
       }
@@ -81,7 +81,15 @@
         visibility: hidden;
       }
 
-      /* --- End State Locking --- */
+      #exit-quiz-btn {
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s;
+      }
+      body.quiz-active #exit-quiz-btn {
+        opacity: 1;
+        pointer-events: auto;
+        visibility: visible;
+      }
 
       .band-col {
         display: flex;
@@ -210,6 +218,8 @@
         top: 50%;
         transform: translate(-50%, -50%);
         z-index: 1;
+        opacity: 1;
+        transition: opacity 1s ease; 
       }
 
       .contact-link {
@@ -268,6 +278,7 @@
 
       html.quiz-active,
       body.quiz-active {
+        height: 100vh !important;
         overflow: hidden !important;
       }
 
@@ -427,7 +438,7 @@
         display: flex;
         pointer-events: none;
         opacity: 0;
-        transition: opacity 1s ease 0.2s;
+        transition: opacity 0.4s ease 0.2s;
         padding-top: 100px;
         padding-bottom: 60px;
       }
@@ -476,7 +487,7 @@
       }
 
       .quiz-btn {
-        background-color: var(--nala-blue);
+        background-color: var(--onawa-blue);
         color: white;
         border: none;
         border-radius: 48px;
@@ -808,21 +819,64 @@
           width: 100%;
           position: fixed;
           display: flex;
-          justify-content: flex-end;
+          align-items: center;
+          justify-content: space-between;
           padding: 1.5rem;
           gap: 1rem;
           z-index: 50;
         "
       >
         <button
+          id="exit-quiz-btn"
+          style="
+            font-weight: bold;
+            color: var(--onawa-blue);
+            border-radius: 48px;
+            padding: 0.75rem 1.5rem;
+            margin-top: 0.15rem;
+            margin-left: 3rem;
+            background-color: white;
+            border: transparent;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            transition: background 0.3s;
+            align-items: center;
+            display: flex;
+            gap: .25rem;
+          "
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="icon-exit"
+          >
+            <!-- The Door/Frame -->
+            <path
+              d="M10 20H15C17.2091 20 19 18.2091 19 16V8C19 5.79086 17.2091 4 15 4H10"
+            />
+
+            <!-- The Arrow -->
+            <path d="M15 12H5" />
+            <path d="M9 16L5 12L9 8" />
+          </svg>
+          Exit quiz
+        </button>
+        <button
           id="find-breed-btn"
           style="
             font-weight: bold;
-            color: var(--nala-blue);
+            color: var(--onawa-blue);
             border-radius: 48px;
             padding: 0.75rem 1.5rem;
             background-color: white;
-            border: 1px solid var(--nala-blue);
+            border: 1px solid var(--onawa-blue);
             cursor: pointer;
             font-family: 'Inter', sans-serif;
             transition: background 0.3s;
@@ -960,12 +1014,14 @@
       <a href="mailto:zacharymichaelmoore@gmail.com" class="contact-link"
         >Contact</a
       >
-      <p>Copyright Nala</p>
+      <p>Copyright onawa</p>
     </div>
 
     <script>
       const bandsContainer = document.querySelector(".bands-container");
       const findBreedBtn = document.getElementById("find-breed-btn");
+      const exitQuizBtn = document.getElementById("exit-quiz-btn");
+      const circleWrapper = document.querySelector(".circle-bg-wrapper");
       const landingElements = document.querySelector(".landing-elements");
       const quizView = document.getElementById("quiz-view");
       const formUrl =
@@ -1028,6 +1084,24 @@
         if (e.key === "Enter") {
           redirectToForm();
         }
+      });
+
+      exitQuizBtn.addEventListener("click", () => {
+        circleWrapper.style.transition = "opacity 0s";
+        circleWrapper.style.opacity = "0";
+        document.body.classList.remove("quiz-active");
+        document.documentElement.classList.remove("quiz-active");
+        document.body.style.overflow = "auto";
+        quizView.classList.remove("active");
+        bandsContainer.classList.remove("blurred-lines");
+        bandsContainer.classList.remove("visible");
+        history.pushState(null, null, " ");
+        landingElements.classList.remove("hidden");
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        setTimeout(() => {
+          circleWrapper.style.transition = "opacity 1.5s ease";
+          circleWrapper.style.opacity = "1";
+        }, 100); 
       });
 
       findBreedBtn.addEventListener("click", () => {
