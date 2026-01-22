@@ -20,6 +20,7 @@
         --onawa-blue: #3a71cb;
         --text-dark: #222;
         --text-grey: #717171;
+        --border-color: #e0e0e0;
       }
 
       * {
@@ -41,6 +42,7 @@
         transition: overflow 0.5s;
       }
 
+      /* --- EXISTING ANIMATION STYLES (Kept as is) --- */
       body.quiz-active .circle-bg-wrapper {
         animation: none !important;
         left: 24px !important;
@@ -91,6 +93,7 @@
         visibility: visible;
       }
 
+      /* Band Animations */
       .band-col {
         display: flex;
         filter: blur(10px);
@@ -103,16 +106,8 @@
         width: 100%;
         will-change: transform, opacity, filter;
       }
-
-      .band-col.spread {
-        justify-content: space-between;
-      }
-
-      .band-col.stacked {
-        gap: 14px;
-        justify-content: flex-start;
-      }
-
+      .band-col.spread { justify-content: space-between; }
+      .band-col.stacked { gap: 14px; justify-content: flex-start; }
       .bands-container {
         align-items: end;
         bottom: 50px;
@@ -127,11 +122,7 @@
         z-index: 2;
         transition: filter 1s ease;
       }
-
-      .bands-container.blurred-lines {
-        filter: blur(5px) !important;
-      }
-
+      .bands-container.blurred-lines { filter: blur(5px) !important; }
       .bands-container.visible .band-col {
         filter: blur(0px);
         opacity: 1;
@@ -140,13 +131,12 @@
           opacity 0.8s ease-out, filter 0.8s ease-out;
         transition-delay: calc(var(--i) * 0.1s);
       }
-
       .bands-container.visible .line {
         transform: translateY(0);
-        transition: transform var(--s, 0s) cubic-bezier(0.05, 0.7, 0.1, 1)
-          var(--d, 0s);
+        transition: transform var(--s, 0s) cubic-bezier(0.05, 0.7, 0.1, 1) var(--d, 0s);
       }
 
+      /* Typography & Landing Elements */
       .char {
         animation: rotate-char linear forwards;
         animation-timeline: scroll();
@@ -157,29 +147,16 @@
         line-height: 1;
         will-change: transform;
       }
-
       .char-box {
         animation-timing-function: var(--ease-smooth) !important;
         display: inline-block;
         will-change: transform, opacity;
       }
-
-      .char-box:nth-child(1) {
-        animation: fade-spread-1 ease-out forwards;
-        animation-timeline: scroll();
-      }
-      .char-box:nth-child(2) {
-        animation: fade-spread-2 ease-out forwards;
-        animation-timeline: scroll();
-      }
-      .char-box:nth-child(3) {
-        animation: fade-spread-3 ease-out forwards;
-        animation-timeline: scroll();
-      }
-      .char-box:nth-child(4) {
-        animation: fade-spread-4 ease-out forwards;
-        animation-timeline: scroll();
-      }
+      .char-box:nth-child(1) { animation: fade-spread-1 ease-out forwards; animation-timeline: scroll(); }
+      .char-box:nth-child(2) { animation: fade-spread-2 ease-out forwards; animation-timeline: scroll(); }
+      .char-box:nth-child(3) { animation: fade-spread-3 ease-out forwards; animation-timeline: scroll(); }
+      .char-box:nth-child(4) { animation: fade-spread-4 ease-out forwards; animation-timeline: scroll(); }
+      .char-box:nth-child(5) { animation: fade-spread-5 ease-out forwards; animation-timeline: scroll(); }
 
       .circle-bg {
         align-items: center;
@@ -195,7 +172,6 @@
         position: relative;
         width: 125vmin;
       }
-
       .circle-bg::after {
         content: "";
         height: 100%;
@@ -207,7 +183,6 @@
         width: 100%;
         z-index: 1;
       }
-
       .circle-bg-wrapper {
         animation: morph-bg-wrapper linear forwards;
         animation-timeline: scroll();
@@ -222,11 +197,7 @@
         transition: opacity 1s ease; 
       }
 
-      .contact-link {
-        color: white;
-        text-decoration: none;
-      }
-
+      .contact-link { color: white; text-decoration: none; }
       .content-wrapper {
         left: 50%;
         pointer-events: none;
@@ -275,17 +246,8 @@
         width: 100%;
         z-index: 6;
       }
-
-      html.quiz-active,
-      body.quiz-active {
-        height: 100vh !important;
-        overflow: hidden !important;
-      }
-
-      body.quiz-active .footer {
-        animation: none !important;
-        opacity: 1 !important;
-      }
+      html.quiz-active, body.quiz-active { height: 100vh !important; overflow: hidden !important; }
+      body.quiz-active .footer { animation: none !important; opacity: 1 !important; }
 
       .input-container {
         align-items: center;
@@ -300,7 +262,6 @@
         width: 90%;
         z-index: 3;
       }
-
       .input-frame {
         --mid-w: 400px;
         --final-w: 385px;
@@ -318,13 +279,7 @@
         top: 50%;
         transform: translate(-50%, -50%) rotate(-60deg);
       }
-
-      .input-wrapper {
-        pointer-events: auto;
-        position: relative;
-        width: 79%;
-      }
-
+      .input-wrapper { pointer-events: auto; position: relative; width: 79%; }
       .line {
         background-color: #7ca2e0;
         height: 2px;
@@ -333,7 +288,6 @@
         width: 100%;
         will-change: transform;
       }
-
       .main-text {
         align-items: baseline;
         display: flex;
@@ -345,7 +299,6 @@
         transform: translate(-50%, -50%);
         z-index: 2;
       }
-
       .submit-btn {
         animation: fade-in-input linear forwards;
         animation-timeline: scroll();
@@ -362,24 +315,18 @@
         pointer-events: auto;
         transition: background 0.3s ease;
       }
-
-      .submit-btn:hover {
-        background: #6b91cf;
-      }
-
+      .submit-btn:hover { background: #6b91cf; }
       .subtitle {
         animation: fade-slide-in-subtitle linear forwards;
         animation-timeline: scroll();
         color: #666;
-        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
-          sans-serif;
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
         font-size: 1rem;
         font-weight: 400;
         opacity: 0;
         transform: translateY(-10px);
         will-change: transform, opacity, filter;
       }
-
       .text-input {
         animation: fade-in-input linear forwards;
         animation-timeline: scroll();
@@ -396,38 +343,22 @@
         width: 100%;
         z-index: 2;
       }
-
-      .text-input::placeholder {
-        color: #999;
-      }
-
-      .text-input:-webkit-autofill {
-        -webkit-box-shadow: 0 0 0 30px white inset !important;
-        -webkit-text-fill-color: #333 !important;
-      }
-
+      .text-input::placeholder { color: #999; }
       .title {
         animation: fade-slide-in-title linear forwards;
         animation-timeline: scroll();
         color: #333;
-        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
-          sans-serif;
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
         font-size: 2rem;
         font-weight: 600;
         margin-bottom: 7px;
         opacity: 0;
         will-change: transform, opacity, filter;
       }
+      .landing-elements { transition: opacity 0.4s ease; }
+      .landing-elements.hidden { opacity: 0; pointer-events: none; }
 
-      .landing-elements {
-        transition: opacity 0.4s ease;
-      }
-
-      .landing-elements.hidden {
-        opacity: 0;
-        pointer-events: none;
-      }
-
+      /* --- QUIZ VIEW & NEW STYLES --- */
       #quiz-view {
         position: fixed;
         top: 0;
@@ -435,20 +366,23 @@
         width: 100%;
         height: 100%;
         z-index: 5;
-        display: flex;
+        display: none; /* Changed from flex to none, controlled by class */
         pointer-events: none;
         opacity: 0;
         transition: opacity 0.4s ease 0.2s;
         padding-top: 100px;
         padding-bottom: 60px;
+        background-color: white; /* Ensure white background for quiz steps */
       }
 
       #quiz-view.active {
         opacity: 1;
         pointer-events: auto;
+        display: flex;
       }
 
-      .quiz-container {
+      /* Quiz Intro Layout */
+      #quiz-intro {
         display: flex;
         flex-direction: row;
         width: 100%;
@@ -459,6 +393,228 @@
         margin-right: 3rem;
       }
 
+      /* Quiz Step 1 Layout */
+      #quiz-step-1 {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 4%;
+        overflow-y: auto; /* allow scroll within the step */
+        font-family: "Inter", sans-serif;
+      }
+
+      #quiz-step-1.active-step {
+        display: flex;
+      }
+
+      /* Header inside Quiz */
+      .quiz-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2rem;
+        width: 100%;
+      }
+
+      .back-link {
+        color: var(--onawa-blue);
+        text-decoration: none;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 1.1rem;
+        cursor: pointer;
+      }
+
+      .continue-btn {
+        background-color: var(--onawa-blue);
+        color: white;
+        border: none;
+        border-radius: 48px;
+        padding: 12px 32px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .continue-btn:hover { background-color: #4a75be; }
+      .enter-hint { font-size: 0.85rem; color: var(--text-grey); margin-left: 8px; }
+
+      /* Quiz Question Content */
+      .quiz-h2 {
+        font-size: 2.25rem;
+        font-weight: 700;
+        color: #222;
+        margin-bottom: 0.5rem;
+      }
+
+      .quiz-sub {
+        font-size: 1.1rem;
+        color: var(--text-grey);
+        margin-bottom: 2rem;
+      }
+
+      /* Breed Selection Area */
+      .selection-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 2rem;
+        margin-bottom: 2rem;
+      }
+
+      .slots-container {
+        display: flex;
+        gap: 1rem;
+      }
+
+      .breed-slot {
+        width: 60px;
+        height: 60px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+      }
+
+      .breed-slot.empty {
+        border: 2px dashed #ccc;
+        background-color: #f9f9f9;
+        font-size: 0.8rem;
+        color: #999;
+        text-align: center;
+        line-height: 1;
+      }
+      /* Fake text for empty slot to match image visually */
+      .breed-slot.empty::after {
+        content: ""; 
+      }
+      
+      .breed-slot.filled {
+        background-size: cover;
+        background-position: center;
+        border: none;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      }
+      
+      .slot-label {
+        position: absolute;
+        left: 70px;
+        top: 50%;
+        transform: translateY(-50%);
+        white-space: nowrap;
+        font-weight: 500;
+        color: #444;
+      }
+      
+      /* Only show label for the first slot for the demo */
+      .breed-slot-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        width: 180px; 
+      }
+
+      .search-box {
+        display: flex;
+        align-items: center;
+        border: 1px solid var(--onawa-blue);
+        border-radius: 48px;
+        padding: 10px 20px;
+        width: 300px;
+        color: var(--text-grey);
+      }
+      .search-box svg { color: var(--onawa-blue); margin-right: 10px; }
+      .search-box input {
+        border: none;
+        outline: none;
+        font-size: 1rem;
+        color: #333;
+        width: 100%;
+        font-family: inherit;
+      }
+
+      /* Grid */
+      .breed-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.5rem;
+        padding-bottom: 80px; /* space for footer */
+      }
+
+      .breed-card {
+        aspect-ratio: 1;
+        background-color: #eee;
+        border-radius: 8px;
+        overflow: hidden;
+        position: relative;
+        cursor: pointer;
+        transition: transform 0.2s;
+      }
+      .breed-card:hover { transform: scale(1.02); }
+
+      .breed-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .card-tag {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        background: white;
+        padding: 4px 10px;
+        border-radius: 4px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: #222;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+
+      .remove-x {
+        position: absolute;
+        top: -6px;
+        right: -6px;
+        background: #999;
+        color: white;
+        border-radius: 50%;
+        width: 18px;
+        height: 18px;
+        font-size: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+      }
+
+      /* Override footer for Quiz Mode */
+      .quiz-footer-bar {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: #5d8cda;
+        color: white;
+        padding: 12px 24px;
+        display: flex;
+        justify-content: space-between;
+        font-family: "Inter", sans-serif;
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        z-index: 20;
+      }
+
+      /* --- EXISTING CLASSES (Kept) --- */
       .quiz-text-col {
         flex: 1;
         display: flex;
@@ -504,15 +660,8 @@
         transition: background-color 0.3s;
       }
 
-      .quiz-btn:hover {
-        background-color: #4a75be;
-      }
-
-      .quiz-time {
-        font-size: 1rem;
-        font-weight: 400;
-        color: var(--text-grey);
-      }
+      .quiz-btn:hover { background-color: #4a75be; }
+      .quiz-time { font-size: 1rem; font-weight: 400; color: var(--text-grey); }
 
       .quiz-img-col {
         flex: 1;
@@ -551,257 +700,38 @@
         display: block;
       }
 
-      @keyframes tape-reel {
-        0% {
-          transform: translateY(0);
-        }
-        100% {
-          transform: translateY(calc(-28% - 0.5rem));
-        }
-      }
+      @keyframes tape-reel { 0% { transform: translateY(0); } 100% { transform: translateY(calc(-28% - 0.5rem)); } }
+      @keyframes fade-in-footer { 0%, 60% { opacity: 0; } 80%, 100% { opacity: 1; } }
+      @keyframes fade-in-input { 0%, 90% { opacity: 0; } 100% { opacity: 1; } }
+      @keyframes fade-slide-in-subtitle { 0%, 70% { filter: blur(12px); opacity: 0; transform: translateY(-10px) scale(1.15); } 90%, 100% { filter: blur(0px); opacity: 1; transform: translateY(0) scale(1); } }
+      @keyframes fade-slide-in-title { 0%, 60% { filter: blur(12px); opacity: 0; transform: translateY(-10px) scale(1.15); } 85%, 100% { filter: blur(0px); opacity: 1; transform: translateY(0) scale(1); } }
+      @keyframes fade-spread-1 { 0%, 50% { filter: blur(0px); opacity: 1; transform: translateX(0); } 60%, 100% { filter: blur(12px); opacity: 0; transform: translateX(-5vmin); } }
+      @keyframes fade-spread-2 { 0%, 20% { filter: blur(0px); opacity: 1; transform: translateX(0); } 50%, 100% { filter: blur(12px); opacity: 0; transform: translateX(5vmin); } }
+      @keyframes fade-spread-3 { 0%, 10% { filter: blur(0px); opacity: 1; transform: translateX(0); } 40%, 100% { filter: blur(12px); opacity: 0; transform: translateX(15vmin); } }
+      @keyframes fade-spread-4 { 0%, 0% { filter: blur(0px); opacity: 1; transform: translateX(0); } 30%, 100% { filter: blur(12px); opacity: 0; transform: translateX(5vmin); } }
+      @keyframes fade-spread-5 { 0%, 0% { filter: blur(0px); opacity: 1; transform: translateX(0); } 20%, 100% { filter: blur(12px); opacity: 0; transform: translateX(5vmin); } }
+      @keyframes morph-bg { 0% { --grad-angle: 225deg; border-radius: 50%; height: 125vmin; width: 125vmin; } 55% { border-radius: 50%; } 100% { --grad-angle: 135deg; border-radius: 3px; height: 50px; width: 50px; } }
+      @keyframes morph-bg-wrapper { 0% { left: 50%; top: 50%; transform: translate(-50%, -50%); } 100% { left: 24px; top: 24px; transform: translate(0, 0); } }
+      @keyframes morph-frame { 0% { border-radius: 0px; height: 150vmin; left: 50%; top: 50%; transform: translate(-50%, -50%) rotate(-60deg); width: 150vmin; } 25% { border-radius: 0px; height: 125vmin; left: 50%; top: 50%; transform: translate(-50%, -50%) rotate(-25deg); width: 125vmin; } 35% { transform: translate(-50%, -50%) rotate(0deg); } 75% { border-radius: 0px; height: 80px; transform: translate(-25%, -25%) rotate(0deg); width: var(--mid-w); } 85% { border-radius: 0px; } 100% { border-radius: 64px; height: 53px; left: 0px; top: 0px; transform: translate(0, 0) rotate(0deg); width: var(--final-w); } }
+      @keyframes pop-up-n { 0%, 65% { opacity: 0; transform: translateY(100%); } 90% { opacity: 0; } 100% { opacity: 1; transform: translateY(0); } }
+      @keyframes rotate-char { 0%, 10% { transform: rotate(0deg); } 70%, 100% { transform: rotate(-10deg); } }
 
       @media (max-width: 900px) {
-        .quiz-container {
-          flex-direction: column;
-        }
-        .quiz-img-col {
-          position: absolute;
-          opacity: 0.3;
-          z-index: -1;
-          right: -20%;
-          height: 100%;
-        }
-        .carousel-wrapper {
-          width: 20rem;
-        }
-        .carousel-image {
-          width: 20rem;
-          height: 20rem;
-        }
-        .quiz-title {
-          font-size: 2rem;
-        }
+        .quiz-container { flex-direction: column; }
+        .quiz-img-col { position: absolute; opacity: 0.3; z-index: -1; right: -20%; height: 100%; }
+        .carousel-wrapper { width: 20rem; }
+        .carousel-image { width: 20rem; height: 20rem; }
+        .quiz-title { font-size: 2rem; }
+        #quiz-step-1 { padding-top: 20px; }
+        .breed-grid { grid-template-columns: repeat(2, 1fr); }
       }
-
       @media (max-width: 600px) {
-        .input-frame {
-          --mid-w: 270px;
-          --final-w: 250px;
-        }
-        .input-wrapper {
-          width: 76% !important;
-        }
-        .submit-btn {
-          margin-bottom: 0px !important;
-        }
-
-        .quiz-img-col {
-          right: -40%;
-        }
-      }
-
-      @keyframes fade-in-footer {
-        0%,
-        60% {
-          opacity: 0;
-        }
-        80%,
-        100% {
-          opacity: 1;
-        }
-      }
-
-      @keyframes fade-in-input {
-        0%,
-        90% {
-          opacity: 0;
-        }
-        100% {
-          opacity: 1;
-        }
-      }
-
-      @keyframes fade-slide-in-subtitle {
-        0%,
-        70% {
-          filter: blur(12px);
-          opacity: 0;
-          transform: translateY(-10px) scale(1.15);
-        }
-        90%,
-        100% {
-          filter: blur(0px);
-          opacity: 1;
-          transform: translateY(0) scale(1);
-        }
-      }
-
-      @keyframes fade-slide-in-title {
-        0%,
-        60% {
-          filter: blur(12px);
-          opacity: 0;
-          transform: translateY(-10px) scale(1.15);
-        }
-        85%,
-        100% {
-          filter: blur(0px);
-          opacity: 1;
-          transform: translateY(0) scale(1);
-        }
-      }
-
-      @keyframes fade-spread-1 {
-        0%,
-        50% {
-          filter: blur(0px);
-          opacity: 1;
-          transform: translateX(0);
-        }
-        60%,
-        100% {
-          filter: blur(12px);
-          opacity: 0;
-          transform: translateX(-5vmin);
-        }
-      }
-      @keyframes fade-spread-2 {
-        0%,
-        20% {
-          filter: blur(0px);
-          opacity: 1;
-          transform: translateX(0);
-        }
-        50%,
-        100% {
-          filter: blur(12px);
-          opacity: 0;
-          transform: translateX(5vmin);
-        }
-      }
-      @keyframes fade-spread-3 {
-        0%,
-        10% {
-          filter: blur(0px);
-          opacity: 1;
-          transform: translateX(0);
-        }
-        40%,
-        100% {
-          filter: blur(12px);
-          opacity: 0;
-          transform: translateX(15vmin);
-        }
-      }
-      @keyframes fade-spread-4 {
-        0%,
-        0% {
-          filter: blur(0px);
-          opacity: 1;
-          transform: translateX(0);
-        }
-        30%,
-        100% {
-          filter: blur(12px);
-          opacity: 0;
-          transform: translateX(5vmin);
-        }
-      }
-
-      @keyframes morph-bg {
-        0% {
-          --grad-angle: 225deg;
-          border-radius: 50%;
-          height: 125vmin;
-          width: 125vmin;
-        }
-        55% {
-          border-radius: 50%;
-        }
-        100% {
-          --grad-angle: 135deg;
-          border-radius: 3px;
-          height: 50px;
-          width: 50px;
-        }
-      }
-
-      @keyframes morph-bg-wrapper {
-        0% {
-          left: 50%;
-          top: 50%;
-          transform: translate(-50%, -50%);
-        }
-        100% {
-          left: 24px;
-          top: 24px;
-          transform: translate(0, 0);
-        }
-      }
-
-      @keyframes morph-frame {
-        0% {
-          border-radius: 0px;
-          height: 150vmin;
-          left: 50%;
-          top: 50%;
-          transform: translate(-50%, -50%) rotate(-60deg);
-          width: 150vmin;
-        }
-        25% {
-          border-radius: 0px;
-          height: 125vmin;
-          left: 50%;
-          top: 50%;
-          transform: translate(-50%, -50%) rotate(-25deg);
-          width: 125vmin;
-        }
-        35% {
-          transform: translate(-50%, -50%) rotate(0deg);
-        }
-        75% {
-          border-radius: 0px;
-          height: 80px;
-          transform: translate(-25%, -25%) rotate(0deg);
-          width: var(--mid-w);
-        }
-        85% {
-          border-radius: 0px;
-        }
-        100% {
-          border-radius: 64px;
-          height: 53px;
-          left: 0px;
-          top: 0px;
-          transform: translate(0, 0) rotate(0deg);
-          width: var(--final-w);
-        }
-      }
-
-      @keyframes pop-up-n {
-        0%,
-        65% {
-          opacity: 0;
-          transform: translateY(100%);
-        }
-        90% {
-          opacity: 0;
-        }
-        100% {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      @keyframes rotate-char {
-        0%,
-        10% {
-          transform: rotate(0deg);
-        }
-        70%,
-        100% {
-          transform: rotate(-10deg);
-        }
+        .input-frame { --mid-w: 270px; --final-w: 250px; }
+        .input-wrapper { width: 76% !important; }
+        .submit-btn { margin-bottom: 0px !important; }
+        .quiz-img-col { right: -40%; }
+        .selection-row { flex-direction: column; align-items: flex-start; gap: 1rem; }
+        .search-box { width: 100%; }
       }
     </style>
   </head>
@@ -814,6 +744,7 @@
           </div>
         </a>
       </div>
+      <!-- Original Nav Buttons (Hidden in active quiz mode via CSS) -->
       <div
         style="
           width: 100%;
@@ -826,25 +757,7 @@
           z-index: 50;
         "
       >
-        <button
-          id="exit-quiz-btn"
-          style="
-            font-weight: bold;
-            color: var(--onawa-blue);
-            border-radius: 48px;
-            padding: 0.75rem 1.5rem;
-            margin-top: 0.15rem;
-            margin-left: 3rem;
-            background-color: white;
-            border: transparent;
-            cursor: pointer;
-            font-family: 'Inter', sans-serif;
-            transition: background 0.3s;
-            align-items: center;
-            display: flex;
-            gap: .25rem;
-          "
-        >
+        <button id="exit-quiz-btn">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -857,33 +770,13 @@
             stroke-linejoin="round"
             class="icon-exit"
           >
-            <!-- The Door/Frame -->
-            <path
-              d="M10 20H15C17.2091 20 19 18.2091 19 16V8C19 5.79086 17.2091 4 15 4H10"
-            />
-
-            <!-- The Arrow -->
+            <path d="M10 20H15C17.2091 20 19 18.2091 19 16V8C19 5.79086 17.2091 4 15 4H10" />
             <path d="M15 12H5" />
             <path d="M9 16L5 12L9 8" />
           </svg>
           Exit quiz
         </button>
-        <button
-          id="find-breed-btn"
-          style="
-            font-weight: bold;
-            color: var(--onawa-blue);
-            border-radius: 48px;
-            padding: 0.75rem 1.5rem;
-            background-color: white;
-            border: 1px solid var(--onawa-blue);
-            cursor: pointer;
-            font-family: 'Inter', sans-serif;
-            transition: background 0.3s;
-          "
-        >
-          Find your breed
-        </button>
+        <!--<button id="find-breed-btn">Find your breed</button>-->
       </div>
     </nav>
 
@@ -908,8 +801,11 @@
       </div>
     </div>
 
+    <!-- QUIZ VIEW CONTAINER -->
     <div id="quiz-view">
-      <div class="quiz-container">
+      
+      <!-- 1. Intro Step -->
+      <div id="quiz-intro" class="quiz-container">
         <div class="quiz-text-col">
           <h1 class="quiz-title">Find your breed</h1>
           <p class="quiz-desc">
@@ -917,104 +813,144 @@
             let our algorithm match you with the ideal dog breed for you.
           </p>
           <div>
-            <button class="quiz-btn">Start Quiz</button>
+            <button class="quiz-btn" id="start-quiz-action">Start Quiz</button>
             <span class="quiz-time">5 minutes</span>
           </div>
         </div>
         <div class="quiz-img-col">
           <div class="carousel-wrapper">
             <div class="carousel-strip">
-              <img
-                src="./assets/carousel-image-01.webp"
-                class="carousel-image"
-                alt="Dog Breed 1"
-              />
-              <img
-                src="./assets/carousel-image-02.webp"
-                class="carousel-image"
-                alt="Dog Breed 2"
-              />
-              <img
-                src="./assets/carousel-image-03.webp"
-                class="carousel-image"
-                alt="Dog Breed 3"
-              />
+              <img src="./assets/carousel-image-01.webp" class="carousel-image" alt="Dog Breed 1" />
+              <img src="./assets/carousel-image-02.webp" class="carousel-image" alt="Dog Breed 2" />
+              <img src="./assets/carousel-image-03.webp" class="carousel-image" alt="Dog Breed 3" />
             </div>
           </div>
         </div>
       </div>
+
+      <!-- 2. Step 1: Breed Selection -->
+      <div id="quiz-step-1">
+        <div class="quiz-header">
+            <a href="#" class="back-link" id="back-to-intro">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+                Back
+            </a>
+            <button class="continue-btn">
+                Continue
+                <span class="enter-hint">⌘ + Enter</span>
+            </button>
+        </div>
+
+        <h2 class="quiz-h2">Which furry friends catch your eye?</h2>
+        <p class="quiz-sub">Select up to three breeds to help us understand your taste.</p>
+
+        <div class="selection-row">
+            <div class="slots-container">
+                <!-- Filled Slot Example -->
+                <div class="breed-slot-wrapper">
+                    <div class="breed-slot filled" style="background-image: url('https://images.unsplash.com/photo-1633722715463-d30f4f325e24?q=80&w=200&auto=format&fit=crop');">
+                        <div class="remove-x">×</div>
+                    </div>
+                    <span class="slot-label">Golden Retriever</span>
+                </div>
+                <!-- Empty Slot -->
+                <div class="breed-slot-wrapper">
+                    <div class="breed-slot empty"></div>
+                    <span class="slot-label" style="color:#ccc;">Select a breed</span>
+                </div>
+                 <!-- Empty Slot -->
+                 <div class="breed-slot-wrapper">
+                    <div class="breed-slot empty"></div>
+                    <span class="slot-label" style="color:#ccc;">Select a breed</span>
+                </div>
+            </div>
+
+            <div class="search-box">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <input type="text" placeholder="Search by name">
+            </div>
+        </div>
+
+        <div class="breed-grid">
+            <div class="breed-card">
+                <div class="card-tag">@goldntito</div>
+                <img src="https://images.unsplash.com/photo-1633722715463-d30f4f325e24?q=80&w=600&auto=format&fit=crop" alt="Golden Retriever">
+            </div>
+            <div class="breed-card">
+                <div class="card-tag">@tikaanihusky</div>
+                <img src="https://images.unsplash.com/photo-1605568427561-40db19c05ed3?q=80&w=600&auto=format&fit=crop" alt="Husky">
+            </div>
+            <div class="breed-card">
+                <div class="card-tag">@_that_pug_penny</div>
+                <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?q=80&w=600&auto=format&fit=crop" alt="Pug">
+            </div>
+            <div class="breed-card">
+                <div class="card-tag">@mollycorgo</div>
+                <img src="https://images.unsplash.com/photo-1589965716319-c003d6600b2e?q=80&w=600&auto=format&fit=crop" alt="Corgi">
+            </div>
+            <div class="breed-card">
+                <div class="card-tag">@i.am.poppy.the.poodle</div>
+                <img src="https://images.unsplash.com/photo-1596492784531-6e6eb5ea9205?q=80&w=600&auto=format&fit=crop" alt="Poodle">
+            </div>
+            <div class="breed-card">
+                <div class="card-tag">@sophie.theyellowlab</div>
+                <img src="https://images.unsplash.com/photo-1600804340586-dc71e3c7cf46?q=80&w=600&auto=format&fit=crop" alt="Lab">
+            </div>
+            <div class="breed-card">
+                <div class="card-tag">@scotchvilla</div>
+                <img src="https://images.unsplash.com/photo-1537151625747-768eb6cf92b2?q=80&w=600&auto=format&fit=crop" alt="Beagle">
+            </div>
+            <div class="breed-card">
+                <div class="card-tag">@chubbthefrenchie24</div>
+                <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?q=80&w=600&auto=format&fit=crop" alt="Frenchie">
+            </div>
+        </div>
+
+        <div class="quiz-footer-bar">
+            <span>CONTACT</span>
+            <span>COPYRIGHT NALA</span>
+        </div>
+      </div>
     </div>
 
+    <!-- Background Band Lines (Existing) -->
     <div class="bands-container">
       <div class="band-col spread" style="height: 130px; --i: 0">
-        <div
-          class="line"
-          style="margin-bottom: 32px; --d: 0.1s; --s: 1.5s"
-        ></div>
+        <div class="line" style="margin-bottom: 32px; --d: 0.1s; --s: 1.5s"></div>
         <div class="line" style="--d: 0.3s; --s: 1.8s"></div>
       </div>
-
       <div class="band-col stacked" style="--i: 8; gap: 9px">
-        <div
-          class="line"
-          style="margin-bottom: 16px; --d: 0.2s; --s: 2.1s"
-        ></div>
+        <div class="line" style="margin-bottom: 16px; --d: 0.2s; --s: 2.1s"></div>
         <div class="line" style="--d: 0.4s; --s: 2s"></div>
-        <div
-          class="line"
-          style="margin-bottom: 17px; --d: 0.1s; --s: 1.5s"
-        ></div>
+        <div class="line" style="margin-bottom: 17px; --d: 0.1s; --s: 1.5s"></div>
       </div>
-
       <div class="band-col" style="height: 100px; --i: 4">
         <div class="line" style="--d: 0.15s; --s: 2.8s"></div>
-        <div
-          class="line"
-          style="margin-bottom: 84px; --d: 0.35s; --s: 0.9s"
-        ></div>
-        <div
-          class="line"
-          style="margin-bottom: 2px; --d: 0.25s; --s: 1.6s"
-        ></div>
+        <div class="line" style="margin-bottom: 84px; --d: 0.35s; --s: 0.9s"></div>
+        <div class="line" style="margin-bottom: 2px; --d: 0.25s; --s: 1.6s"></div>
       </div>
-
       <div class="band-col stacked" style="--i: 4">
         <div class="line" style="--d: 0.5s; --s: 2.2s"></div>
         <div class="line" style="--d: 0.2s; --s: 1.1s"></div>
       </div>
-
       <div class="band-col stacked" style="--i: 6; gap: 3px">
-        <div
-          class="line"
-          style="margin-bottom: 29px; --d: 0.1s; --s: 1.6s"
-        ></div>
+        <div class="line" style="margin-bottom: 29px; --d: 0.1s; --s: 1.6s"></div>
         <div class="line" style="--d: 0.4s; --s: 2.9s"></div>
-        <div
-          class="line"
-          style="margin-bottom: 25px; --d: 0.2s; --s: 1.7s"
-        ></div>
-        <div
-          class="line"
-          style="margin-bottom: 13px; --d: 0.5s; --s: 1.3s"
-        ></div>
+        <div class="line" style="margin-bottom: 25px; --d: 0.2s; --s: 1.7s"></div>
+        <div class="line" style="margin-bottom: 13px; --d: 0.5s; --s: 1.3s"></div>
       </div>
-
       <div class="band-col" style="height: 180px; --i: 5">
-        <div
-          class="line"
-          style="margin-bottom: 45px; --d: 0.2s; --s: 2.5s"
-        ></div>
-        <div
-          class="line"
-          style="margin-bottom: 105px; --d: 0.4s; --s: 1.2s"
-        ></div>
+        <div class="line" style="margin-bottom: 45px; --d: 0.2s; --s: 2.5s"></div>
+        <div class="line" style="margin-bottom: 105px; --d: 0.4s; --s: 1.2s"></div>
       </div>
     </div>
 
+    <!-- Original Footer (Hidden in quiz mode via CSS) -->
     <div class="footer">
-      <a href="mailto:zacharymichaelmoore@gmail.com" class="contact-link"
-        >Contact</a
-      >
+      <a href="mailto:zacharymichaelmoore@gmail.com" class="contact-link">Contact</a>
       <p>Copyright onawa</p>
     </div>
 
@@ -1025,11 +961,16 @@
       const circleWrapper = document.querySelector(".circle-bg-wrapper");
       const landingElements = document.querySelector(".landing-elements");
       const quizView = document.getElementById("quiz-view");
-      const formUrl =
-        "https://docs.google.com/forms/d/e/1FAIpQLScNV_za4VU8GqcpciHPAwZBoyrl7iYCFr1I_fIGdzPkQ1hOww/viewform";
+      const formUrl = "https://docs.google.com/forms/d/e/1FAIpQLScNV_za4VU8GqcpciHPAwZBoyrl7iYCFr1I_fIGdzPkQ1hOww/viewform";
       const entryId = "entry.61043093";
       const submitBtn = document.querySelector(".submit-btn");
       const emailInput = document.querySelector(".text-input");
+
+      // New Selectors for Steps
+      const startQuizAction = document.getElementById("start-quiz-action");
+      const quizIntro = document.getElementById("quiz-intro");
+      const quizStep1 = document.getElementById("quiz-step-1");
+      const backToIntro = document.getElementById("back-to-intro");
 
       window.addEventListener("scroll", () => {
         if (!document.body.classList.contains("quiz-active")) {
@@ -1047,16 +988,12 @@
 
       function activateQuizView() {
         landingElements.classList.add("hidden");
-
         document.body.classList.add("quiz-active");
         document.documentElement.classList.add("quiz-active");
         document.body.style.overflow = "hidden";
-
         quizView.classList.add("active");
-
         bandsContainer.classList.add("blurred-lines");
         bandsContainer.classList.add("visible");
-
         window.scrollTo(0, document.body.scrollHeight);
       }
 
@@ -1074,9 +1011,7 @@
           alert("Please enter your email first.");
           return;
         }
-        const finalUrl = `${formUrl}?usp=pp_url&${entryId}=${encodeURIComponent(
-          email
-        )}`;
+        const finalUrl = `${formUrl}?usp=pp_url&${entryId}=${encodeURIComponent(email)}`;
         window.open(finalUrl, "_blank");
       }
 
@@ -1088,6 +1023,10 @@
       });
 
       exitQuizBtn.addEventListener("click", () => {
+        // Reset steps
+        quizStep1.classList.remove("active-step");
+        quizIntro.style.display = "flex";
+
         circleWrapper.style.transition = "opacity 0s";
         circleWrapper.style.opacity = "0";
         document.body.classList.remove("quiz-active");
@@ -1107,24 +1046,34 @@
 
       findBreedBtn.addEventListener("click", () => {
         landingElements.classList.add("hidden");
-
         const docHeight = document.body.scrollHeight;
         window.scrollTo({
           top: docHeight,
           behavior: "smooth",
         });
-
         setTimeout(() => {
           history.pushState(null, null, "#find-your-breed");
-
           document.body.classList.add("quiz-active");
           document.body.style.overflow = "hidden";
-
           quizView.classList.add("active");
-
           bandsContainer.classList.add("blurred-lines");
         }, 850);
       });
+
+      // --- NEW LOGIC: Step Switching ---
+      startQuizAction.addEventListener("click", () => {
+        quizIntro.style.display = "none";
+        quizStep1.classList.add("active-step");
+        // Hide the top right "Exit Quiz" button to match design, or keep it depending on preference.
+        // For now, I'll keep the exit button visible as it provides a way out.
+      });
+
+      backToIntro.addEventListener("click", (e) => {
+        e.preventDefault();
+        quizStep1.classList.remove("active-step");
+        quizIntro.style.display = "flex";
+      });
+
     </script>
   </body>
 </html>
