@@ -155,7 +155,7 @@
 
       /* Typography & Landing Elements */
       .char {
-        animation: rotate-char linear forwards;
+        animation: rotate-char linear both;
         animation-timeline: scroll();
         animation-timing-function: var(--ease-smooth);
         color: white;
@@ -170,29 +170,29 @@
         will-change: transform, opacity;
       }
       .char-box:nth-child(1) {
-        animation: fade-spread-1 ease-out forwards;
+        animation: fade-spread-1 ease-out both;
         animation-timeline: scroll();
       }
       .char-box:nth-child(2) {
-        animation: fade-spread-2 ease-out forwards;
+        animation: fade-spread-2 ease-out both;
         animation-timeline: scroll();
       }
       .char-box:nth-child(3) {
-        animation: fade-spread-3 ease-out forwards;
+        animation: fade-spread-3 ease-out both;
         animation-timeline: scroll();
       }
       .char-box:nth-child(4) {
-        animation: fade-spread-4 ease-out forwards;
+        animation: fade-spread-4 ease-out both;
         animation-timeline: scroll();
       }
       .char-box:nth-child(5) {
-        animation: fade-spread-5 ease-out forwards;
+        animation: fade-spread-5 ease-out both;
         animation-timeline: scroll();
       }
 
       .circle-bg {
         align-items: center;
-        animation: morph-bg linear forwards;
+        animation: morph-bg linear both;
         animation-timeline: scroll();
         animation-timing-function: var(--ease-smooth);
         background: linear-gradient(var(--grad-angle), #ffffff 0%, #7ca2e0 45%);
@@ -216,7 +216,7 @@
         z-index: 1;
       }
       .circle-bg-wrapper {
-        animation: morph-bg-wrapper linear forwards;
+        animation: morph-bg-wrapper linear both;
         animation-timeline: scroll();
         animation-timing-function: var(--ease-smooth);
         left: 50%;
@@ -263,9 +263,11 @@
       }
 
       .footer {
-        animation: fade-in-footer linear forwards;
+        animation: fade-in-footer linear both;
         animation-timeline: scroll();
         animation-timing-function: var(--ease-smooth);
+        will-change: opacity;
+        -webkit-backface-visibility: hidden;
         background-color: #5d8cda;
         bottom: 0px;
         color: white;
@@ -310,7 +312,7 @@
       .input-frame {
         --mid-w: 400px;
         --final-w: 385px;
-        animation: morph-frame linear forwards;
+        animation: morph-frame linear both;
         animation-timeline: scroll();
         border: 1px solid #7ca2e0;
         opacity: 1;
@@ -349,7 +351,7 @@
         z-index: 2;
       }
       .submit-btn {
-        animation: fade-in-input linear forwards;
+        animation: fade-in-input linear both;
         animation-timeline: scroll();
         background: #5d8cda;
         border: none;
@@ -368,7 +370,7 @@
         background: #6b91cf;
       }
       .subtitle {
-        animation: fade-slide-in-subtitle linear forwards;
+        animation: fade-slide-in-subtitle linear both;
         animation-timeline: scroll();
         color: #666;
         font-family:
@@ -384,7 +386,7 @@
         will-change: transform, opacity;
       }
       .text-input {
-        animation: fade-in-input linear forwards;
+        animation: fade-in-input linear both;
         animation-timeline: scroll();
         background: white;
         border: none;
@@ -403,7 +405,7 @@
         color: #999;
       }
       .title {
-        animation: fade-slide-in-title linear forwards;
+        animation: fade-slide-in-title linear both;
         animation-timeline: scroll();
         color: #333;
         font-family:
